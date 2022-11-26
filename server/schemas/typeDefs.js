@@ -5,8 +5,8 @@ const typeDefs = gql`
   type Planet {
     _id: ID
     planetName: String
-    bgImgSrc: String
-    groundImgSrc: String
+    # bgImgSrc: String
+    # groundImgSrc: String
     oxygenRate: Int
     oreRate: Int
     foodRate: Int
@@ -15,15 +15,14 @@ const typeDefs = gql`
 
   type User {
     _id: ID
-    username: String
+    password: String!
+    username: String!
     userOxygen: Int
     userOre: Int
     userWater: Int
-    userOxygen: Int
     userRocket: String
-    userGold: Int
+    # userGold: Int
     userPlanet: 
-    userGold:
     timeOut:
   }
 
@@ -45,17 +44,20 @@ const typeDefs = gql`
 
   type Query {
     categories: [User, Rocket, Planet]
+    planet: Planet
     users(user: ID, username: String, )
     rocket(_id: ID!): Product
     user: User
-   }
+  }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addRocket(products: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
-    login(email: String!, password: String!): Auth
+    addUser(
+    username: String
+    ): Auth
+    addRocket(rocket: [ID]!): Rocket
+    updateUser(userName): User
+    updateOre(_id: ID!, quantity: Int!): Product
+    login(userName: String!, password: String!): Auth
   }
 `;
 
