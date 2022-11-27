@@ -41,6 +41,16 @@ const userSchema = new Schema({
     type: Number,
     required: true,
   },
+    Rocket: {
+    type: rocketSchema.Types.ObjectId,
+    ref: 'Rocket',
+    required: true
+  },
+    Planet: {
+    type: planetSchema.Types.ObjectId,
+    ref: 'Planet',
+    required: true
+  }
 });
 
 // set up pre-save middleware to create password

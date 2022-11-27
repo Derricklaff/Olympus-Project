@@ -2,35 +2,36 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const productSchema = new Schema({
+const rocketSchema = new Schema({
   name: {
     type: String,
     required: true,
     trim: true
   },
-  description: {
-    type: String
+  id: {
+    type: Number,
+    required: true
   },
   image: {
     type: String
   },
-  price: {
+  maxResourceCount: {
     type: Number,
     required: true,
-    min: 0.99
   },
-  quantity: {
+  minResourceCount: {
     type: Number,
     min: 0,
     default: 0
   },
-  category: {
+  User: {
     type: Schema.Types.ObjectId,
-    ref: 'Category',
+    ref: 'User',
     required: true
   }
-});
+}
+);
 
-const Product = mongoose.model('Product', productSchema);
+const Rocket = mongoose.model('Rocket', rocketSchema);
 
-module.exports = Product;
+module.exports = Rocket;
