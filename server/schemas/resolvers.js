@@ -1,11 +1,10 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Planet, Rocket } = require('../models');
+const { User} = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
-    
     users: async (parent, { _id }) => {
       return await User.findById(_id).populate('room');
     },
@@ -20,12 +19,10 @@ const resolvers = {
     },
 
   },
-  updateUser: async (parent, args, context) => {
+  updateUser: async () => {
     if (context.user) {
       return await User.findByIdAndUpdate(context.user._id, args, { new: true });
     }
-
-    throw new AuthenticationError('Not logged in');
   },
 
   login: async (parent, { username, password }) => {

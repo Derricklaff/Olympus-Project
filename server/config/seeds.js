@@ -1,62 +1,24 @@
 const db = require('./connection');
-const { User, Product, Category } = require('../models');
-db.once('open', async () => {
-  await Category.deleteMany();
-  const categories = await Category.insertMany([
-    { name: 'Planet' },
-    { name: 'Rocket' }
-  ]);
-  console.log('database seeded');
-  await Product.deleteMany();
-  const products = await Product.insertMany([
-    {
-    //   name: 'Planet One',
-    //   planetName: String
-    // # bgImgSrc: String
-    // # groundImgSrc: String
-    // oxygenRate: Int
-    // oreRate: Int
-    // foodRate: Int
-    // waterRate: Int
-    // 
-  },
-    {
-      name: 'Planet Two',
-      description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    },
-    {
-      name: 'Rocket One',
-      category: categories[1]._id,
-      description:
-        'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
-      image: 'toilet-paper.jpg',
-      price: 7.99,
-      quantity: 20
-    },
-    {
-      name: 'Rocket Two',
-      category: categories[1]._id,
-      description:
-        'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-      image: 'soap.jpg',
-      price: 3.99,
-      quantity: 50
-    }
-  ]);
+const { User } = require('../models');
+db.once('open', async () => { 
   console.log('products seeded');
   await User.deleteMany();
-  await User.create({
-    userName: 'Pamela',
+  await User.create(
+    {
+    userName: 'tristan',
     password: 'password12345',
-    orders: [
-      {
-        products: [products[0]._id, products[0]._id, products[1]._id]
-      }
-    ]
-  });
+  },
+  {
+    userName: 'derrick',
+    password: 'password12345',
+  },
+  {
+    userName: 'gayle',
+    password: 'password12345',
+  }
+  );
   await User.create({
-    userName: 'Elijah',
+    userName: 'rachel',
     password: 'password12345'
   });
   console.log('users seeded');

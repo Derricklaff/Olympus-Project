@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Planet = require('./Planet');
-const Rocket = require('./Rocket');
+
 
 const userSchema = new Schema({
   userName: {
@@ -16,41 +15,9 @@ const userSchema = new Schema({
     required: true,
     trim: true
   },
-  password: {
-    type: String,
-    required: true,
-    minlength: 5
-  },
-  userOxygen: {
-    type: Number,
-    required: true,
-  },
-  userOre: {
-    type: Number,
-    required: true,
-  },
-  userWater: {
-    type: Number,
-    required: true,
-  },
-  userRocket: {
-    type: Number,
-    required: true,
-  },
-  userPlanet: {
-    type: Number,
-    required: true,
-  },
-    Rocket: {
-    type: Schema.Types.ObjectId,
-    ref: 'Rocket',
-    required: true
-  },
-    Planet: {
-    type: Schema.Types.ObjectId,
-    ref: 'Planet',
-    required: true
-  }
+  // checkPoint: {
+
+  // }
 });
 
 // set up pre-save middleware to create password
