@@ -2,13 +2,9 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
-  type Planet {
+  type Checkpoint {
     _id: ID
     planetName: String
-    oxygenRate: Int
-    oreRate: Int
-    foodRate: Int
-    waterRate: Int
   }
 
   type User {
@@ -18,18 +14,11 @@ const typeDefs = gql`
   
   }
 
-  type Rocket {
-    _id: ID
-    name: String
-    maxResourceCount: Int
-    minResourceCount: Int
-    fuelNeeded: Int
-  }
 
   type All {
     user: [User]
-    rocket: [Rocket]
-    planet: [Planet]
+    rocket: [RocketRoom]
+    planet: [PlanetRoom]
   }
 
   type Checkout {
@@ -43,7 +32,7 @@ const typeDefs = gql`
 
   type Query {
     categories: All
-    planet: [Planet]
+    planet: [PlanetRoom]
     users(user: ID, username: String ):[User]
     rocket(_id: ID!): Product
     user: User
@@ -51,9 +40,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(username: String): Auth
-    addRocket(rocket: [ID]!): Rocket
     updateUser(username: String): User
-    updateOre(_id: ID!, quantity: Int!): Product
     login(username: String!, password: String!): Auth
   }
 `;
