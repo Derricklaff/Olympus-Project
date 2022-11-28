@@ -6,21 +6,27 @@ db.once('open', async () => {
     { name: 'Planet' },
     { name: 'Rocket' }
   ]);
-  console.log('categories seeded');
+  console.log('database seeded');
   await Product.deleteMany();
   const products = await Product.insertMany([
     {
-      name: 'Planet One',
+    //   name: 'Planet One',
+    //   planetName: String
+    // # bgImgSrc: String
+    // # groundImgSrc: String
+    // oxygenRate: Int
+    // oreRate: Int
+    // foodRate: Int
+    // waterRate: Int
+    // 
+  },
+    {
+      name: 'Planet Two',
       description:
         'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     },
     {
-      name: 'Planet One',
-      description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    },
-    {
-      name: 'Rocket 1',
+      name: 'Rocket One',
       category: categories[1]._id,
       description:
         'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
@@ -29,7 +35,7 @@ db.once('open', async () => {
       quantity: 20
     },
     {
-      name: 'Rocket 2',
+      name: 'Rocket Two',
       category: categories[1]._id,
       description:
         'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',

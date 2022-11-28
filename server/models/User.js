@@ -42,12 +42,12 @@ const userSchema = new Schema({
     required: true,
   },
     Rocket: {
-    type: rocketSchema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Rocket',
     required: true
   },
     Planet: {
-    type: planetSchema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Planet',
     required: true
   }

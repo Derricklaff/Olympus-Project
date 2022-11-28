@@ -12,9 +12,7 @@ const rocketSchema = new Schema({
     type: Number,
     required: true
   },
-  image: {
-    type: String
-  },
+  
   maxResourceCount: {
     type: Number,
     required: true,
