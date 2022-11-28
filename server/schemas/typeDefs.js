@@ -2,27 +2,10 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
-  type Checkpoint {
-    _id: ID
-    planetName: String
-  }
-
   type User {
     _id: ID
     password: String!
     username: String!
-  
-  }
-
-
-  type All {
-    user: [User]
-    rocket: [RocketRoom]
-    planet: [PlanetRoom]
-  }
-
-  type Checkout {
-    session: ID
   }
 
   type Auth {
@@ -31,10 +14,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    categories: All
-    planet: [PlanetRoom]
     users(user: ID, username: String ):[User]
-    rocket(_id: ID!): Product
     user: User
   }
 
