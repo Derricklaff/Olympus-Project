@@ -28,6 +28,7 @@ const typeDefs = gql`
 
   type Rocket {
     _id:ID
+    name: String
     maxResourceCount: Int
     minResourceCount: Int
     fuelNeeded: Int
