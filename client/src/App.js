@@ -1,14 +1,15 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react'
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
+import HomePage from './pages/Homepage';
 import { setContext } from '@apollo/client/link/context';
 import { ChakraProvider } from '@chakra-ui/react'
-import Homepage from './pages/Homepage';
 
 const httpLink = createHttpLink({
   uri: 'graphql',
@@ -32,29 +33,28 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ChakraProvider>
-      <ApolloProvider client={client}>
-        <Homepage />
-        {/* <Router>
+    <ApolloProvider  client={client}>
+      <ChakraProvider>
+        <Router>
           <>
             <Routes>
-              <Route
-                path='/'
-                element={<div></div>}
+              <Route 
+                path='/' 
+                element={<HomePage />} 
               />
-              <Route
-                path='/saved'
-                element={<div></div>}
+              <Route 
+                path='/saved' 
+                element={<div></div>} 
               />
-              <Route
+              <Route 
                 path='*'
                 element={<h1 className='display-2'>Wrong page!</h1>}
               />
             </Routes>
           </>
-        </Router> */}
-      </ApolloProvider>
-    </ChakraProvider >
+        </Router>
+      </ChakraProvider>
+    </ApolloProvider>
   );
 }
 
