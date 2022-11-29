@@ -1,13 +1,14 @@
 import { Link } from '@chakra-ui/react';
 import { Link as ReactLink } from "react-router-dom";
 
-function AboutUsLink() {
-
+function SignInLink() {
     return(
         <>
-            <Link as={ReactLink} to='/about-us'>
-                About Us
+            <Link as={ReactLink} to='/sign-in'>
+                Sign In
             </Link>
         </>
     )
 }
+
+export default SignInLink;

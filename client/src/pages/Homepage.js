@@ -1,11 +1,13 @@
+import Header from "../components/Header/Header";
 import { Box, Button, Center, Container, Heading, Flex, Text, Stack } from '@chakra-ui/react';
-import React from 'react';
-
-export default function Homepage() {
+function HomePage() {
     return (
-
         <>
-            {/* <video id='background-video' autoPlay loop muted ><source src='../components/images/stars' type='video/mp4'></source></video> */}
+            <Flex>
+                <Header />
+            </Flex>
+
+
             <Container bgGradient=''>
                 <Stack>
                     <Text align='center' fontSize='4xl'>Oh no! Your rocket has lost power and is stuck on an unkown planet in a far away star system!</Text>
@@ -25,5 +27,8 @@ export default function Homepage() {
 
         </>
 
-    )
+
+    );
 }
+
+export default HomePage;
