@@ -1,8 +1,8 @@
-import Auth from '../../utils/auth';
-import SignInLink from './menuLinks/SignInLink';
-import SignUpLink from './menuLinks/SignUpLink';
-import PlayGameLink from './menuLinks/PlayGameLink';
-import AboutUsLink from './menuLinks/AboutUsLink';
+import Auth from '../../../utils/auth';
+import SignInLink from './MenuLinks/SignInLink';
+import SignUpLink from './MenuLinks/SignUpLink';
+import PlayGameLink from './MenuLinks/PlayGameLink';
+import AboutUsLink from './MenuLinks/AboutUsLink';
 import {
     Menu,
     MenuButton,

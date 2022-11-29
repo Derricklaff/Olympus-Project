@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import { LOGIN_USER } from '../../utils/mutations';
 
 const LoginForm = () => {
 

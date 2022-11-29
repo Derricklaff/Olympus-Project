@@ -1,5 +1,5 @@
 import { Heading } from '@chakra-ui/react';
-import LinkMenu from './linkMenu/linkMenu'; 
+import LinkMenu from './LinkMenu/LinkMenu'; 
 
 function Header() {
     return (
