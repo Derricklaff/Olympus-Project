@@ -5,31 +5,22 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
-    users: async (parent, { _id }) => {
-      return await User.findById(_id).populate('room');
-    },
+    user: async (parent, args, context) => {
+      return User.findOne({ _id: context.user._id });
+    }
   },
 
   Mutation: {
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
       const token = signToken(user);
-
       return { token, user };
     },
-
-
-    updateUser: async (parent, args, context) => {
-      if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
-      }
-    },
-
-    login: async (parent, { username, password }) => {
-      const user = await User.findOne({ username });
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError('No user found with this email address');
       }
 
       const correctPw = await user.isCorrectPassword(password);
@@ -41,7 +32,16 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
+    },
+    saveCheckpoint: async (parent, { checkpoint }, context) => {
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { checkpoint: parseInt(checkpoint) },
+        { new: true, runValidators: true }
+      );
+
+      return updatedUser;
+    },
   }
 }
 

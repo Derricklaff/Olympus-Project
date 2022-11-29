@@ -1,5 +1,5 @@
 {
-  "name": "mern-shopping",
+  "name": "olympus-project",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -12,8 +12,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^7.6.0"
   }
 }

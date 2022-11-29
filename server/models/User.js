@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-
 
 const userSchema = new Schema({
   userName: {
@@ -15,12 +13,12 @@ const userSchema = new Schema({
     required: true,
     trim: true
   },
-  // checkPoint: {
-
-  // }
+  checkPoint: {
+    type: Number,
+    required: false,
+  }
 });
 
-// set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
