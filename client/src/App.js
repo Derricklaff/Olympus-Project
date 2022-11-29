@@ -8,6 +8,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import HomePage from './pages/Homepage';
+import SignInPage from './pages/SignInPage';
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
@@ -43,7 +44,7 @@ function App() {
               />
               <Route 
                 path='/sign-in' 
-                element={<div></div>} 
+                element={<SignInPage />} 
               />
               <Route 
                 path='/sign-up' 
