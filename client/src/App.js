@@ -42,7 +42,19 @@ function App() {
                 element={<HomePage />} 
               />
               <Route 
-                path='/saved' 
+                path='/sign-in' 
+                element={<div></div>} 
+              />
+              <Route 
+                path='/sign-up' 
+                element={<div></div>} 
+              />
+              <Route 
+                path='/about-us' 
+                element={<div></div>} 
+              />
+              <Route 
+                path='/play-game' 
                 element={<div></div>} 
               />
               <Route 
