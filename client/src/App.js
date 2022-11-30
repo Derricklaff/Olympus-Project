@@ -1,21 +1,15 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react'
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
+import HomePage from './pages/Homepage';
+import SignInPage from './pages/SignInPage';
 import { setContext } from '@apollo/client/link/context';
-
-import Home from './pages/Home';
-import Detail from './pages/Detail';
-import NoMatch from './pages/NoMatch';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Nav from './components/Nav';
-import { StoreProvider } from './utils/GlobalState';
-import Success from './pages/Success';
 
 
 const httpLink = createHttpLink({
@@ -41,35 +35,38 @@ const client = new ApolloClient ({
 function App() {
   return (
     <ApolloProvider  client={client}>
-      <Router>
-        <div>
-          <StoreProvider>
-            <Nav />
+      <ChakraProvider>
+        <Router>
+          <>
             <Routes>
               <Route 
-                path="/" 
-                element={<Home />} 
+                path='/' 
+                element={<HomePage />} 
               />
               <Route 
-                path="/login" 
-                element={<Login />} 
+                path='/sign-in' 
+                element={<SignInPage />} 
               />
               <Route 
-                path="/signup" 
-                element={<Signup />} 
+                path='/sign-up' 
+                element={<div></div>} 
               />
               <Route 
-                path="/success" 
-                element={<Success />} 
+                path='/about-us' 
+                element={<div></div>} 
               />
               <Route 
-                path="*" 
-                element={<NoMatch />} 
+                path='/play-game' 
+                element={<div></div>} 
+              />
+              <Route 
+                path='*'
+                element={<h1>Wrong page!</h1>}
               />
             </Routes>
-          </StoreProvider>
-        </div>
-      </Router>
+          </>
+        </Router>
+      </ChakraProvider>
     </ApolloProvider>
   );
 }
