@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Auth from '../../utils/auth';
+import SignUpModal from './SignUpModal';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 import { Field, Form, Formik } from 'formik'
@@ -14,16 +15,19 @@ import {
   CardBody, 
   Heading,
   InputRightElement,
-  InputGroup
+  InputGroup,
+  useDisclosure,
 } from '@chakra-ui/react';
 
 const SignUpForm = () => {
 
   const [ addUser ] = useMutation(ADD_USER);
   const [show, setShow] = useState(false);
+  const [modTxt, setModTxt] = useState('Some Text');
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleFormSubmit = async (values, actions) => {
-    alert(JSON.stringify(values, null, 2))
     actions.setSubmitting(false)
 
     try {
@@ -34,7 +38,8 @@ const SignUpForm = () => {
 
       Auth.login(data.addUser.token);
     } catch (err) {
-      console.log(err);
+      setModTxt(err.message);
+      onOpen();
     }
   }
 
@@ -106,6 +111,7 @@ const SignUpForm = () => {
         </Formik>
       </CardBody>
     </Card>
+    <SignUpModal modTxt={modTxt} isOpen={isOpen} onClose={onClose} />
     </>
   );
 }
