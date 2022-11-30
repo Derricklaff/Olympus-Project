@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react'
 import {
@@ -7,10 +6,10 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
-import HomePage from './pages/Homepage';
-import SignInPage from './pages/SignInPage';
-import SignUpPage from './pages/SignUpPage';
-import AboutUs from './pages/AboutUs';
+import HomePage from './pages/Homepage/Homepage';
+import SignInPage from './pages/SingInPage/SignInPage';
+import SignUpPage from './pages/SignupPage/SignUpPage';
+import AboutUs from './pages/AboutUs/AboutUs';
 import { setContext } from '@apollo/client/link/context';
 
 
@@ -45,17 +44,17 @@ function App() {
                 path='/'
                 element={<HomePage />}
               />
-              <Route 
-                path='/sign-in' 
-                element={<SignInPage />} 
+              <Route
+                path='/sign-in'
+                element={<SignInPage />}
               />
-              <Route 
-                path='/sign-up' 
-                element={<SignUpPage />} 
+              <Route
+                path='/sign-up'
+                element={<SignUpPage />}
               />
-              <Route 
-                path='/about-us' 
-                element={<AboutUs />} 
+              <Route
+                path='/about-us'
+                element={<AboutUs />}
               />
               <Route
                 path='/play-game'
