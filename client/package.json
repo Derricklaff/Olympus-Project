@@ -10,20 +10,17 @@
     "@chakra-ui/react": "^2.4.2",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@stripe/react-stripe-js": "^1.15.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "formik": "^2.2.9",
     "framer-motion": "^7.6.15",
     "graphql": "^16.6.0",
-<<<<<<< HEAD
-    "jwt-decode": "^2.2.0",
-=======
     "graphql-tag": "^2.12.6",
     "jwt-decode": "^3.1.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
->>>>>>> 2d62be6ccfd723b7d56e9f8ab64055ea09f96f94
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",

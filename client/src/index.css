@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /* :root {
   --primary: #232F3E;
   --secondary: #F3A847;
@@ -20,7 +18,6 @@ body {
   min-height: 100%;
 }
 
->>>>>>> 9d3dee002e79c7caceee1b5d6a644c98e04f1511
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -30,12 +27,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-<<<<<<< HEAD
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-=======
 h1,
 h2,
 h3,
@@ -216,4 +207,3 @@ input:focus {
     width: 100%;
   }
 } */
->>>>>>> 9d3dee002e79c7caceee1b5d6a644c98e04f1511

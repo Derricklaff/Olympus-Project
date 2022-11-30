@@ -1,6 +1,6 @@
-<<<<<<< HEAD
-import React from 'react';
+import React, {useState} from 'react';
 import StripeContainer from '../components/Stripe/StripeContainer';
+
 
 
 
@@ -45,17 +45,3 @@ export default function AboutUs() {
 
     )
 }
-=======
-import Header from "../components/Header/Header";
-
-function AboutUs() {
-    return (
-        <>
-        <Header />
-        <h2>Some Text</h2>
-        </>
-    );
-}
-
-export default AboutUs;
->>>>>>> 2d62be6ccfd723b7d56e9f8ab64055ea09f96f94
