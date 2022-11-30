@@ -9,10 +9,9 @@ const { json } = require('body-parser');
 const { authMiddleware } = require('./utils/auth');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
-require('dotenv').config();
-const stripe = require('strpe')(process.env.STRIPE_SECRET_TEST);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST);
 const bodyParser = require('body-parser');
-const cors = require('cors');
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
