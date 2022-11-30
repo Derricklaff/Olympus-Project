@@ -1,4 +1,5 @@
 import Auth from '../../../utils/auth';
+import HomeLink from './MenuLinks/HomeLink';
 import SignInLink from './MenuLinks/SignInLink';
 import SignUpLink from './MenuLinks/SignUpLink';
 import PlayGameLink from './MenuLinks/PlayGameLink';
@@ -24,7 +25,13 @@ function LinkMenu() {
                 variant='outline'
             />
             <MenuList>
-                { Auth.loggedIn() ? <> <MenuItem> <PlayGameLink /> </MenuItem> <MenuItem> <LogOutLink /> </MenuItem> </> : <> <MenuItem> <SignInLink /> </MenuItem> <MenuItem> <SignUpLink /> </MenuItem> </> }
+                <MenuItem>
+                    <HomeLink />
+                </MenuItem>
+                { Auth.loggedIn() ? <> <MenuItem> <LogOutLink /> </MenuItem> </> : <> <MenuItem> <SignInLink /> </MenuItem> <MenuItem> <SignUpLink /> </MenuItem> </> }
+                <MenuItem> 
+                    <PlayGameLink />
+                </MenuItem>
                 <MenuItem>
                     <AboutUsLink />
                 </MenuItem>
