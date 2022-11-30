@@ -1,4 +1,5 @@
 import Auth from '../../utils/auth';
+import LoginModal from './LoginModal';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 import { Field, Form, Formik } from 'formik'
@@ -13,7 +14,8 @@ import {
   CardBody, 
   Heading,
   InputRightElement,
-  InputGroup
+  InputGroup,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
@@ -21,9 +23,9 @@ import { useState } from 'react';
 const LoginForm = () => {
   const [ login ] = useMutation(LOGIN_USER);
   const [show, setShow] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleFormSubmit = async (values, actions) => {
-    alert(JSON.stringify(values, null, 2))
     actions.setSubmitting(false)
 
     try {
@@ -33,13 +35,14 @@ const LoginForm = () => {
       console.log(data)
       Auth.login(data.login.token);
     } catch (err) {
-      console.error(err);
+      onOpen();
     }
   }
 
   const handleClick = () => setShow(!show)
 
   return (
+    <>
     <Card>
       <CardHeader>
         <Heading as='h2' size='lg'>
@@ -58,7 +61,7 @@ const LoginForm = () => {
             <Form>
               <Field name='email'>
                 {({ field, form }) => (
-                  <FormControl isInvalid={form.errors.name && form.touched.name}>
+                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
                     <FormLabel>Enter Email</FormLabel>
                     <Input {...field} placeholder='email' type='email' />
                     <FormErrorMessage>{form.errors.name}</FormErrorMessage>
@@ -67,7 +70,7 @@ const LoginForm = () => {
               </Field>
               <Field name='password'>
                 {({ field, form }) => (
-                  <FormControl isInvalid={form.errors.name && form.touched.name}>
+                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
                     <FormLabel>Enter Password</FormLabel>
                     <InputGroup>
                       <Input {...field} placeholder='password' type={show ? 'text' : 'password'} />
@@ -94,6 +97,8 @@ const LoginForm = () => {
         </Formik>
       </CardBody>
     </Card>
+    <LoginModal isOpen={isOpen} onClose={onClose} />
+    </>
   )
 }
 

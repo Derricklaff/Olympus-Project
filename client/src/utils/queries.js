@@ -1,17 +1,5 @@
-import { gql } from '@apollo/client';
+import gql from 'graphql-tag';
 
-<<<<<<< HEAD
-export const QUERY_USER = gql`
-  query user {
-  user {
-    _id
-    username
-    email
-    checkpoint
-  }
-}
-`;
-=======
 export const QUERY_PRODUCTS = gql`
   query getProducts($category: ID) {
     products(category: $category) {
@@ -80,4 +68,3 @@ export const QUERY_USER = gql`
     }
   }
 `;
->>>>>>> 9d3dee002e79c7caceee1b5d6a644c98e04f1511

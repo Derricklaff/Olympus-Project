@@ -16,7 +16,14 @@
     "formik": "^2.2.9",
     "framer-motion": "^7.6.15",
     "graphql": "^16.6.0",
+<<<<<<< HEAD
     "jwt-decode": "^2.2.0",
+=======
+    "graphql-tag": "^2.12.6",
+    "jwt-decode": "^3.1.2",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
+>>>>>>> 2d62be6ccfd723b7d56e9f8ab64055ea09f96f94
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
