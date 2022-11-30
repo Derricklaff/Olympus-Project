@@ -8,8 +8,6 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-<<<<<<< HEAD
-=======
 import Home from './pages/Home';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
@@ -20,7 +18,6 @@ import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 
 
->>>>>>> 9d3dee002e79c7caceee1b5d6a644c98e04f1511
 const httpLink = createHttpLink({
   uri: 'graphql',
 });
@@ -45,24 +42,6 @@ function App() {
   return (
     <ApolloProvider  client={client}>
       <Router>
-<<<<<<< HEAD
-        <>
-          <Routes>
-            <Route 
-              path='/' 
-              element={<div></div>} 
-            />
-            <Route 
-              path='/saved' 
-              element={<div></div>} 
-            />
-            <Route 
-              path='*'
-              element={<h1 className='display-2'>Wrong page!</h1>}
-            />
-          </Routes>
-        </>
-=======
         <div>
           <StoreProvider>
             <Nav />
@@ -90,7 +69,6 @@ function App() {
             </Routes>
           </StoreProvider>
         </div>
->>>>>>> 9d3dee002e79c7caceee1b5d6a644c98e04f1511
       </Router>
     </ApolloProvider>
   );
