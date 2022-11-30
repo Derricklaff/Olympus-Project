@@ -33,7 +33,7 @@ const LoginForm = () => {
       console.log(data)
       Auth.login(data.login.token);
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   }
 
@@ -58,7 +58,7 @@ const LoginForm = () => {
             <Form>
               <Field name='email'>
                 {({ field, form }) => (
-                  <FormControl isInvalid={form.errors.name && form.touched.name}>
+                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
                     <FormLabel>Enter Email</FormLabel>
                     <Input {...field} placeholder='email' type='email' />
                     <FormErrorMessage>{form.errors.name}</FormErrorMessage>
@@ -67,7 +67,7 @@ const LoginForm = () => {
               </Field>
               <Field name='password'>
                 {({ field, form }) => (
-                  <FormControl isInvalid={form.errors.name && form.touched.name}>
+                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
                     <FormLabel>Enter Password</FormLabel>
                     <InputGroup>
                       <Input {...field} placeholder='password' type={show ? 'text' : 'password'} />

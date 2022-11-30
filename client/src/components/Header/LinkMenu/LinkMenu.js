@@ -3,6 +3,7 @@ import SignInLink from './MenuLinks/SignInLink';
 import SignUpLink from './MenuLinks/SignUpLink';
 import PlayGameLink from './MenuLinks/PlayGameLink';
 import AboutUsLink from './MenuLinks/AboutUsLink';
+import LogOutLink from './MenuLinks/LogOutLink';
 import {
     Menu,
     MenuButton,
@@ -23,7 +24,7 @@ function LinkMenu() {
                 variant='outline'
             />
             <MenuList>
-                { Auth.loggedIn() ? <MenuItem> <PlayGameLink /> </MenuItem> : <> <MenuItem> <SignInLink /> </MenuItem> <MenuItem> <SignUpLink /> </MenuItem> </> }
+                { Auth.loggedIn() ? <> <MenuItem> <PlayGameLink /> </MenuItem> <MenuItem> <LogOutLink /> </MenuItem> </> : <> <MenuItem> <SignInLink /> </MenuItem> <MenuItem> <SignUpLink /> </MenuItem> </> }
                 <MenuItem>
                     <AboutUsLink />
                 </MenuItem>

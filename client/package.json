@@ -16,6 +16,7 @@
     "formik": "^2.2.9",
     "framer-motion": "^7.6.15",
     "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
     "jwt-decode": "^3.1.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

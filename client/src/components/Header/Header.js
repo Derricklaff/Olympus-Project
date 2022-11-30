@@ -4,7 +4,7 @@ import LinkMenu from './LinkMenu/LinkMenu';
 function Header() {
     return (
         <header>
-            <Heading as='h1' size='2xl' noOfLines={1}>
+            <Heading as='h1' size='2xl'>
                 Olympus Project
             </Heading>
             <div>

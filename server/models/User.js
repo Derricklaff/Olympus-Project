@@ -3,15 +3,20 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-  userName: {
+  username: {
     type: String,
     required: true,
-    trim: true
+    unique: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Must use a valid email address'],
   },
   password: {
     type: String,
     required: true,
-    trim: true
   },
   checkPoint: {
     type: Number,
