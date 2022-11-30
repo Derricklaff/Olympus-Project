@@ -5,7 +5,7 @@ function Greeting() {
     return (<>
 
         <Card>
-            
+
             <CardHeader>
                 <Heading as='h2' size='lg' align='center'>
                     Welcome to Olympus Project!
@@ -17,7 +17,7 @@ function Greeting() {
                 </Text>
                 <Text align='center' fontSize='4xl'>Your rocket has lost power and is stuck on an unkown planet in a far away star system!</Text>
                 <Text align='center' fontSize='4xl'>Solve all the tasks, restore power to your ship, and get home!</Text>
-                <Text align='center' fontSize='4xl'><Button fontSize='4xl' colorScheme='red' variant='ghost'>Log In</Button>or<Button colorScheme='red' variant='ghost' fontSize='4xl'>Sign Up</Button> to save your mission progress! Or just play as a guest!</Text>
+                <Text align='center' fontSize='4xl'><Link fontSize='4xl' colorScheme='red'>Log In </Link>or <Link colorScheme='red' fontSize='4xl'>Sign Up</Link> to save your mission progress! Or just play as a guest!</Text>
             </CardBody>
         </Card>
         <Container>
