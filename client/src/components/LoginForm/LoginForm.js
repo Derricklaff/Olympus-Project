@@ -1,4 +1,5 @@
 import Auth from '../../utils/auth';
+import LoginModal from './LoginModal';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 import { Field, Form, Formik } from 'formik'
@@ -13,7 +14,8 @@ import {
   CardBody, 
   Heading,
   InputRightElement,
-  InputGroup
+  InputGroup,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
@@ -21,9 +23,9 @@ import { useState } from 'react';
 const LoginForm = () => {
   const [ login ] = useMutation(LOGIN_USER);
   const [show, setShow] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleFormSubmit = async (values, actions) => {
-    alert(JSON.stringify(values, null, 2))
     actions.setSubmitting(false)
 
     try {
@@ -33,13 +35,14 @@ const LoginForm = () => {
       console.log(data)
       Auth.login(data.login.token);
     } catch (err) {
-      console.log(err);
+      onOpen();
     }
   }
 
   const handleClick = () => setShow(!show)
 
   return (
+    <>
     <Card>
       <CardHeader>
         <Heading as='h2' size='lg'>
@@ -94,6 +97,8 @@ const LoginForm = () => {
         </Formik>
       </CardBody>
     </Card>
+    <LoginModal isOpen={isOpen} onClose={onClose} />
+    </>
   )
 }
 
