@@ -1,48 +1,128 @@
 import { useState } from 'react';
 import Auth from '../../utils/auth';
+import SignUpModal from './SignUpModal';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
+import { Field, Form, Formik } from 'formik'
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  Input,
+  Button,
+  Card, 
+  CardHeader, 
+  CardBody, 
+  Heading,
+  InputRightElement,
+  InputGroup,
+  useDisclosure,
+} from '@chakra-ui/react';
 
-const SignupForm = () => {
+const SignUpForm = () => {
 
   const [ addUser ] = useMutation(ADD_USER);
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
+  const [show, setShow] = useState(false);
+  const [modTxt, setModTxt] = useState('Some Text');
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
-  }
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+  const handleFormSubmit = async (values, actions) => {
+    actions.setSubmitting(false)
 
     try {
+      const { username, email, password } = values;
       const { data } = await addUser({
-        variables: { ...userFormData }
+        variables: { username, email, password }
       });
 
       Auth.login(data.addUser.token);
     } catch (err) {
-      console.error(err);
-      setShowAlert(true);
+      setModTxt(err.message);
+      onOpen();
     }
-
-    setUserFormData({
-      username: '',
-      email: '',
-      password: '',
-    });
   }
 
-//   return (
+  const handleClick = () => setShow(!show)
+
+  return (
+    <>
+    <Card>
+      <CardHeader>
+        <Heading as='h2' size='lg'>
+          Sign Up
+        </Heading>
+      </CardHeader>
+      <CardBody>
+        <Formik
+        initialValues={{
+          username: '',
+          email: '',
+          password: '',
+        }}
+        onSubmit={handleFormSubmit}
+        >
+          {(props) => (
+            <Form>
+              <Field name='username'>
+                {({ field, form }) => (
+                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
+                    <FormLabel>Enter Username</FormLabel>
+                    <Input {...field} placeholder='username' type='text'/>
+                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+              <Field name='email'>
+                {({ field, form }) => (
+                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
+                    <FormLabel>Enter Email</FormLabel>
+                    <Input {...field} placeholder='email' type='email' />
+                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+              <Field name='password'>
+                {({ field, form }) => (
+                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
+                    <FormLabel>Enter Password</FormLabel>
+                    <InputGroup>
+                      <Input {...field} placeholder='password' type={show ? 'text' : 'password'} />
+                      <InputRightElement width='4.5rem'>
+                        <Button h='1.75rem' size='sm' onClick={handleClick}>
+                          {show ? 'Hide' : 'Show'}
+                        </Button>
+                      </InputRightElement>
+                    </InputGroup>
+                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+              <Button
+                mt={4}
+                colorScheme='teal'
+                isLoading={props.isSubmitting}
+                type='submit'
+              >
+                Submit
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </CardBody>
+    </Card>
+    <SignUpModal modTxt={modTxt} isOpen={isOpen} onClose={onClose} />
+    </>
+  );
+}
+
+export default SignUpForm;
+
+
+
+
+
+
 //     <>
 //       {/* This is needed for the validation functionality above */}
 //       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
@@ -97,7 +177,3 @@ const SignupForm = () => {
 //         </Button>
 //       </Form>
 //     </>
-//   );
-}
-
-export default SignupForm;

@@ -1,89 +1,105 @@
-import { useState } from 'react';
 import Auth from '../../utils/auth';
+import LoginModal from './LoginModal';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
+import { Field, Form, Formik } from 'formik'
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  Input,
+  Button,
+  Card, 
+  CardHeader, 
+  CardBody, 
+  Heading,
+  InputRightElement,
+  InputGroup,
+  useDisclosure,
+} from '@chakra-ui/react';
+import { useState } from 'react';
+
 
 const LoginForm = () => {
+  const [ login ] = useMutation(LOGIN_USER);
+  const [show, setShow] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [ login ] = useMutation(LOGIN_USER)
-
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
-  }
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    // check if form has everything (as per react-bootstrap docs)
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+  const handleFormSubmit = async (values, actions) => {
+    actions.setSubmitting(false)
 
     try {
       const { data } = await login({
-        variables: { ...userFormData }
+        variables: { ...values }
       });
       console.log(data)
       Auth.login(data.login.token);
     } catch (err) {
-      console.error(err);
-      setShowAlert(true);
+      onOpen();
     }
-
-    setUserFormData({
-      username: '',
-      email: '',
-      password: '',
-    });
   }
 
-//   return (
-//     <>
-//       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-//         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-//           Something went wrong with your login credentials!
-//         </Alert>
-//         <Form.Group>
-//           <Form.Label htmlFor='email'>Email</Form.Label>
-//           <Form.Control
-//             type='text'
-//             placeholder='Your email'
-//             name='email'
-//             onChange={handleInputChange}
-//             value={userFormData.email}
-//             required
-//           />
-//           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-//         </Form.Group>
+  const handleClick = () => setShow(!show)
 
-//         <Form.Group>
-//           <Form.Label htmlFor='password'>Password</Form.Label>
-//           <Form.Control
-//             type='password'
-//             placeholder='Your password'
-//             name='password'
-//             onChange={handleInputChange}
-//             value={userFormData.password}
-//             required
-//           />
-//           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-//         </Form.Group>
-//         <Button
-//           disabled={!(userFormData.email && userFormData.password)}
-//           type='submit'
-//           variant='success'>
-//           Submit
-//         </Button>
-//       </Form>
-//     </>
-//   );
+  return (
+    <>
+    <Card>
+      <CardHeader>
+        <Heading as='h2' size='lg'>
+          Log In
+        </Heading>
+      </CardHeader>
+      <CardBody>
+        <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        onSubmit={handleFormSubmit}
+        >
+          {(props) => (
+            <Form>
+              <Field name='email'>
+                {({ field, form }) => (
+                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
+                    <FormLabel>Enter Email</FormLabel>
+                    <Input {...field} placeholder='email' type='email' />
+                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+              <Field name='password'>
+                {({ field, form }) => (
+                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
+                    <FormLabel>Enter Password</FormLabel>
+                    <InputGroup>
+                      <Input {...field} placeholder='password' type={show ? 'text' : 'password'} />
+                      <InputRightElement width='4.5rem'>
+                        <Button h='1.75rem' size='sm' onClick={handleClick}>
+                          {show ? 'Hide' : 'Show'}
+                        </Button>
+                      </InputRightElement>
+                    </InputGroup>
+                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+              <Button
+                mt={4}
+                colorScheme='teal'
+                isLoading={props.isSubmitting}
+                type='submit'
+              >
+                Submit
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </CardBody>
+    </Card>
+    <LoginModal isOpen={isOpen} onClose={onClose} />
+    </>
+  )
 }
 
 export default LoginForm;

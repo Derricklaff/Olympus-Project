@@ -8,6 +8,9 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import HomePage from './pages/Homepage';
+import SignInPage from './pages/SignInPage';
+import SignUpPage from './pages/SignUpPage';
+import AboutUs from './pages/AboutUs';
 import { setContext } from '@apollo/client/link/context';
 
 
@@ -42,17 +45,17 @@ function App() {
                 path='/'
                 element={<HomePage />}
               />
-              <Route
-                path='/sign-in'
-                element={<div></div>}
+              <Route 
+                path='/sign-in' 
+                element={<SignInPage />} 
               />
-              <Route
-                path='/sign-up'
-                element={<div></div>}
+              <Route 
+                path='/sign-up' 
+                element={<SignUpPage />} 
               />
-              <Route
-                path='/about-us'
-                element={<div></div>}
+              <Route 
+                path='/about-us' 
+                element={<AboutUs />} 
               />
               <Route
                 path='/play-game'
