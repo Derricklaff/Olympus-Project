@@ -1,11 +1,10 @@
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Link, Container, Center } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Link, } from '@chakra-ui/react'
 import { Link as ReactLink } from "react-router-dom";
 
 function Greeting() {
-    return (<>
-
+    return (
+        <>
         <Card>
-
             <CardHeader>
                 <Heading as='h2' size='lg' align='center'>
                     Welcome to Olympus Project!
@@ -19,16 +18,15 @@ function Greeting() {
                 <Text align='center' fontSize='4xl'>Solve all the tasks, restore power to your ship, and get home!</Text>
                 <Text align='center' fontSize='4xl'><Link fontSize='4xl' colorScheme='red'>Log In </Link>or <Link colorScheme='red' fontSize='4xl'>Sign Up</Link> to save your mission progress! Or just play as a guest!</Text>
             </CardBody>
-        </Card>
-        <Container>
-            <Button>
+            <CardFooter>
                 <Link as={ReactLink} to='/play-game'>
-                    Start Hacking
+                    <Button>
+                        Start Hacking
+                    </Button>
                 </Link>
-            </Button>
-        </Container>
-
-    </>
+            </CardFooter>
+        </Card>
+        </>
     );
 }
 

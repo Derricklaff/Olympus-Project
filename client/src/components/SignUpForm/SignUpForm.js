@@ -17,13 +17,15 @@ import {
   InputRightElement,
   InputGroup,
   useDisclosure,
+  useToast,
 } from '@chakra-ui/react';
 
 const SignUpForm = () => {
 
   const [ addUser ] = useMutation(ADD_USER);
   const [show, setShow] = useState(false);
-  const [modTxt, setModTxt] = useState('Some Text');
+  const [modTxt, setModTxt] = useState('');
+  const toast = useToast();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -31,12 +33,24 @@ const SignUpForm = () => {
     actions.setSubmitting(false)
 
     try {
+      const toastId = 'signup-toast';
       const { username, email, password } = values;
       const { data } = await addUser({
         variables: { username, email, password }
       });
 
       Auth.login(data.addUser.token);
+
+      if(!toast.isActive(toastId)) {
+        toast({
+          id: toastId,
+          title: 'Account created.',
+          description: "Your account has been created.",
+          status: 'success',
+          duration: 4000,
+          isClosable: true,
+        });
+      }
     } catch (err) {
       setModTxt(err.message);
       onOpen();

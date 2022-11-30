@@ -11,7 +11,7 @@ import {
     MenuList,
     MenuItem,
     IconButton
-  } from '@chakra-ui/react'
+  } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons'
 
 function LinkMenu() {
@@ -25,16 +25,10 @@ function LinkMenu() {
                 variant='outline'
             />
             <MenuList>
-                <MenuItem>
-                    <HomeLink />
-                </MenuItem>
-                { Auth.loggedIn() ? <> <MenuItem> <LogOutLink /> </MenuItem> </> : <> <MenuItem> <SignInLink /> </MenuItem> <MenuItem> <SignUpLink /> </MenuItem> </> }
-                <MenuItem> 
-                    <PlayGameLink />
-                </MenuItem>
-                <MenuItem>
-                    <AboutUsLink />
-                </MenuItem>
+                <HomeLink />
+                { Auth.loggedIn() ?   <LogOutLink /> : <>  <SignInLink />   <SignUpLink />  </> } 
+                <PlayGameLink />
+                <AboutUsLink />
             </MenuList>
         </Menu>
         </>

@@ -1,12 +1,14 @@
-import { Link } from '@chakra-ui/react';
+import { Link, MenuItem } from '@chakra-ui/react';
 import Auth from '../../../../utils/auth';
 
 function LogOutLink() {
     return(
         <>
-            <Link onClick={Auth.logout}>
+        <Link onClick={Auth.logout}>
+            <MenuItem>
                 Logout
-            </Link>
+            </MenuItem>
+        </Link>
         </>
     )
 }

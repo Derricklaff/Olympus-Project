@@ -10,6 +10,7 @@ import HomePage from './pages/Homepage/Homepage';
 import SignInPage from './pages/SingInPage/SignInPage';
 import SignUpPage from './pages/SignupPage/SignUpPage';
 import AboutUs from './pages/AboutUs/AboutUs';
+import GamePage from './pages/GamePage/GamePage'
 import { setContext } from '@apollo/client/link/context';
 
 
@@ -35,40 +36,38 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ChakraProvider>
-      <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
+      <ChakraProvider>
         <Router>
-          <>
-            <Routes>
-              <Route
-                path='/'
-                element={<HomePage />}
-              />
-              <Route
-                path='/sign-in'
-                element={<SignInPage />}
-              />
-              <Route
-                path='/sign-up'
-                element={<SignUpPage />}
-              />
-              <Route
-                path='/about-us'
-                element={<AboutUs />}
-              />
-              <Route
-                path='/play-game'
-                element={<div></div>}
-              />
-              <Route
-                path='*'
-                element={<h1>Wrong page!</h1>}
-              />
-            </Routes>
-          </>
+          <Routes>
+            <Route
+              path='/'
+              element={<HomePage />}
+            />
+            <Route 
+              path='/sign-in' 
+              element={<SignInPage />} 
+            />
+            <Route 
+              path='/sign-up' 
+              element={<SignUpPage />} 
+            />
+            <Route 
+              path='/about-us' 
+              element={<AboutUs />} 
+            />
+            <Route
+              path='/play-game'
+              element={<GamePage />}
+            />
+            <Route
+              path='*'
+              element={<h1>Wrong page!</h1>}
+            />
+          </Routes>
         </Router>
-      </ApolloProvider>
-    </ChakraProvider>
+      </ChakraProvider>
+    </ApolloProvider>
   );
 }
 
