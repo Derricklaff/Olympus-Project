@@ -7,11 +7,12 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
-import HomePage from './pages/Homepage';
-import SignInPage from './pages/SignInPage';
-import SignUpPage from './pages/SignUpPage';
-import AboutUs from './pages/AboutUs';
+import HomePage from './pages/Homepage/Homepage';
+import SignInPage from './pages/SingInPage/SignInPage';
+import SignUpPage from './pages/SignupPage/SignUpPage';
+import AboutUs from './pages/AboutUs/AboutUs';
 import { setContext } from '@apollo/client/link/context';
+
 
 const httpLink = createHttpLink({
   uri: 'graphql',
@@ -28,21 +29,21 @@ const authLink = setContext((_, { headers }) => {
   }
 });
 
-const client = new ApolloClient ({
+const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 })
 
 function App() {
   return (
-    <ApolloProvider  client={client}>
-      <ChakraProvider>
+    <ChakraProvider>
+      <ApolloProvider client={client}>
         <Router>
           <>
             <Routes>
-              <Route 
-                path='/' 
-                element={<HomePage />} 
+              <Route
+                path='/'
+                element={<HomePage />}
               />
               <Route 
                 path='/sign-in' 
@@ -56,19 +57,19 @@ function App() {
                 path='/about-us' 
                 element={<AboutUs />} 
               />
-              <Route 
-                path='/play-game' 
-                element={<div></div>} 
+              <Route
+                path='/play-game'
+                element={<div></div>}
               />
-              <Route 
+              <Route
                 path='*'
                 element={<h1>Wrong page!</h1>}
               />
             </Routes>
           </>
         </Router>
-      </ChakraProvider>
-    </ApolloProvider>
+      </ApolloProvider>
+    </ChakraProvider>
   );
 }
 
