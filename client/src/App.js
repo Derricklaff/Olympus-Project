@@ -60,7 +60,7 @@ function App() {
               />
               <Route
                 path='*'
-                element={<h1 className='display-2'>Wrong page!</h1>}
+                element={<h1>Wrong page!</h1>}
               />
             </Routes>
           </>
