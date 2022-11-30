@@ -10,8 +10,8 @@ export default function AboutUs() {
         <div>
             <section>
                 <h1>About Us</h1>
-              
-                {showItem ? <StripeContainer/> : <> <h3>$5.00</h3> <img src=''></img></>} <button onClick={()=> setShowItem(true)}>Buy us a coffee</button>
+
+                {showItem ? <StripeContainer /> : <> <h3>$5.00</h3> <img src=''></img></>} <button onClick={() => setShowItem(true)}>Buy us a coffee</button>
             </section>
 
             <section id="welcome" >
@@ -20,7 +20,7 @@ export default function AboutUs() {
 
                         <h2>About The Game</h2>
                         <p>
-                            Hello, and welcome to the Olympus-project. A fun and interactive video that reviews coding concepts covered in a coding bootcamp. The best way to learn about a new concept in anything is to turn it into a game. With the Olympus project, a player can review important concepts in coding to ensure that they are learning and retaining the content taught. If you like what we have created support us by buying us a cup of coffee. 
+                            Hello, and welcome to the Olympus-project. A fun and interactive video that reviews coding concepts covered in a coding bootcamp. The best way to learn about a new concept in anything is to turn it into a game. With the Olympus project, a player can review important concepts in coding to ensure that they are learning and retaining the content taught. If you like what we have created support us by buying us a cup of coffee.
                         </p>
                     </div>
 

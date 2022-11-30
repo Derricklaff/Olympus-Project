@@ -38,12 +38,12 @@ export default function PaymentForm() {
         if (!error) {
             try {
                 const { id } = paymentMethod
-                const responce = await axios.post('https://localhost:200/payment', {
+                const response = await axios.post('https://localhost:3001/payment', {
                     amount: 500,
                     id
                 })
 
-                if (responce.data.success) {
+                if (response.data.success) {
                     console.log("Successful Payment")
                     setSuccess(true)
                 }
