@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import axios from "axios";
+import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Link, Flex, Avatar, Box } from '@chakra-ui/react'
 
 const CARD_OPTIONS = {
     iconStyle: "solid",
@@ -22,7 +23,7 @@ const CARD_OPTIONS = {
     }
 }
 
-export default function PaymentForm() {
+export default function PaymentForm(props) {
     const [success, setSuccess] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
@@ -71,7 +72,7 @@ export default function PaymentForm() {
                     <h2>You just bought the developers a coffee. Thank you!</h2>
                 </div>
             }
-
+            <Button onClick={() => props.setShowItem (false)}>Close</Button>
 
         </>
     )

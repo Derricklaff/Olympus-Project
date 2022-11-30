@@ -7,16 +7,16 @@ import {
     FormErrorMessage,
     Input,
     Button,
-    Card, 
-    CardHeader, 
-    CardBody, 
+    Card,
+    CardHeader,
+    CardBody,
     Heading,
     InputRightElement,
     InputGroup,
     useDisclosure,
     useToast,
-  } from '@chakra-ui/react';
-  import GameModal from './GameModal/GameModal';
+} from '@chakra-ui/react';
+import GameModal from './GameModal/GameModal';
 
 function GameContainer() {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -25,7 +25,7 @@ function GameContainer() {
 
     return (
         <>
-        <GameModal modTxt={modTxt}  isOpen={isOpen} onClose={onClose} />
+            <GameModal modTxt={modTxt} isOpen={isOpen} onClose={onClose} />
         </>
     );
 }
