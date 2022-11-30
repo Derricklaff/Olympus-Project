@@ -1,5 +1,5 @@
-import Header from "../components/Header/Header"
-import GameContainer from "../components/Game/GameContainer";
+import Header from "../../components/Header/Header"
+import GameContainer from "../../components/Game/GameContainer";
 
 function GamePage() {
     return (

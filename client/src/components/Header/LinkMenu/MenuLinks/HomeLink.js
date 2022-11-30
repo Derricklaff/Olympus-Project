@@ -1,12 +1,14 @@
-import { Link } from '@chakra-ui/react';
+import { Link, MenuItem } from '@chakra-ui/react';
 import { Link as ReactLink } from "react-router-dom";
 
 function HomeLink() {
     return(
         <>
-            <Link as={ReactLink} to='/'>
+        <Link as={ReactLink} to='/'>
+            <MenuItem>
                 Home
-            </Link>
+            </MenuItem>
+        </Link>
         </>
     )
 }
