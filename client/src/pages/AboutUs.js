@@ -1,14 +1,17 @@
 import React from 'react';
+import StripeContainer from '../components/Stripe/StripeContainer';
 
 
 
 export default function AboutUs() {
+    const [showItem, setShowItem] = useState(false)
     return (
 
         <div>
             <section>
                 <h1>About Us</h1>
-                <button type="Submit">Buy us a coffee</button>
+              
+                {showItem ? <StripeContainer/> : <> <h3>$5.00</h3> <img src=''></img></>} <button onClick={()=> setShowItem(true)}>Buy us a coffee</button>
             </section>
 
             <section id="welcome" >
