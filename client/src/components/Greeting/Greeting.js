@@ -12,7 +12,7 @@ function Greeting() {
                     p={6}
                     maxW={'1500px'}
                     w={'full'}
-                    bg={useColorModeValue('white', 'gray.800')}
+                    bg={useColorModeValue('gray', 'gray.800')}
                     boxShadow={'2xl'}
                     rounded={'30'}
                     pos={'relative'}
