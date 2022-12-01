@@ -8,12 +8,11 @@ import {
 } from '@chakra-ui/react';
 import GameModal from './GameModal/GameModal';
 import GameBg from './GameBg/GameBg';
-import GameArea from './GameArea/GameArea';
-
 
 function GameContainer() {
     const questions = [
         {
+            id: 1,
             topic: "Your first task to get back home is to replace the hackerCode with the computer's processor.",
             choices:
                 [
@@ -76,8 +75,8 @@ function GameContainer() {
 
     return (
         <>
-        <GameBg />
-        <GameModal modTxt={modTxt}  isOpen={isOpen} onClose={onClose} />
+        <GameBg onOpen={onOpen} loading={loading} />
+        <GameModal modTxt={modTxt}  setAnswer={setAnswer} isOpen={isOpen} onClose={onClose} />
         </>
     );
 }
