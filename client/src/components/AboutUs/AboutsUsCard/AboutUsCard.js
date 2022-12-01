@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Link, Flex, Avatar, Box } from '@chakra-ui/react'
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../../../utils/queries';
@@ -9,7 +9,6 @@ const stripePromise = loadStripe("pk_test_51M9b6wJfacGwExOb03mskYA5m8ElF0FDU4U5c
 
 function AboutUsCard() {
     const [getCheckout, {data}] = useLazyQuery(QUERY_CHECKOUT)
-    const [showItem, setShowItem] = useState(false)
     useEffect(() => {
         if (data) {
             stripePromise.then((res) => {
