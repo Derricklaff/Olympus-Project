@@ -1,23 +1,53 @@
 const { GraphQLError } = require('graphql');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require('stripe')('sk_test_51M9b6wJfacGwExObuU14krEOBWsuHJN61YAuc1HGjuAN5V30eSbZVeJinyRRuFboY0BLaemo8zWb1OGUp6g5Zl4W00KTn5LSuK');
 
 
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
       return User.findOne({ _id: context.user._id });
+    },
+
+    checkout: async (parent, args, context) => {
+      const url = new URL(context.headers.referer).origin;
+      const line_items = [];
+
+      const payment = await stripe.products.create({
+        name: 'Developer Coffee',
+        description: 'Donation to the developers of the game',
+        images: ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"]
+      })
+
+      const price = await stripe.prices.create({
+        product: payment.id,
+        unit_amount: 500,
+        currency: 'usd'
+      });
+
+      line_items.push({
+        price: price.id,
+        quantity: 1
+      });
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items,
+        mode: 'payment',
+        success_url: `${url}/`,
+        cancel_url: `${url}/`
+    });
+    return {session:session.id}
     }
   },
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
 
-      if(password.length < 8) {
+      if (password.length < 8) {
         return new Error('Password must be at least 8 characters long')
       }
-
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };

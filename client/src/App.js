@@ -10,7 +10,7 @@ import HomePage from './pages/Homepage/Homepage';
 import SignInPage from './pages/SingInPage/SignInPage';
 import SignUpPage from './pages/SignupPage/SignUpPage';
 import AboutUs from './pages/AboutUs/AboutUs';
-import GamePage from './pages/GamePage/GamePage'
+import GamePage from './pages/GamePage/GamePage';
 import { setContext } from '@apollo/client/link/context';
 
 
