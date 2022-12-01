@@ -15,5 +15,9 @@
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "http-proxy-middleware": "^2.0.6",
+    "stripe": "^11.1.0"
   }
 }

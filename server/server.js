@@ -36,30 +36,22 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/'));
 });
 
-app.post('/payment', cors(), async (req, res) => {
-  let {amount, id } = req.body
-  try {
-    const payment = await stripe.paymentIntents.create({
-      amount,
-      currency: 'USD',
-      description: 'coffee',
-      payment_method: 'id',
-      confirm: true
-    })
-    console.log('Payment', payment)
-    res.json({
-      message: 'Payment successful',
-      success: true
-    })
-  }catch (error) {
-    console.log('Error', error)
-    res.json({
-      message: 'Payment failed',
-      success: false
-    })
+app.post('/create-checkout-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+        price: '500',
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `${url}/success`,
+    cancel_url: `${url}/cancel`,
+  });
 
-  }
-})
+  res.redirect(303, session.url);
+});
 
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();

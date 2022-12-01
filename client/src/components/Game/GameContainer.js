@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react';
 import GameModal from './GameModal/GameModal';
 import GameBg from './GameBg/GameBg';
+import { QuestionOutlineIcon } from '@chakra-ui/icons';
 
 function GameContainer() {
     const questions = [
@@ -24,6 +25,7 @@ function GameContainer() {
             answer: "computerParts.splice(2, 1, `processor`);"
         },
         {
+            id: 2,
             topic: "The hacker lowered the power levels of the ship. It looks like everything is only at half power. How would you double them? Const powerLevels = [ 11, 16, 14, 9];",
             choices:
                 [
@@ -35,36 +37,39 @@ function GameContainer() {
             answer: "const powerLevels = powerLevels.map(x => x*2)"
         },
         {
+            id: 3,
             topic: "Now that the power levels are doubled, check your math to make sure the total is 100 using the spread method. We started the code for you: Function sum(22, 32, 28, 18) {Return 22 + 32 + 28 + 18;}Const number = [22, 32, 28, 18];",
             choices:
-            [
-                "console.log(sum(...numbers));console.log(apply(null, numbers));",
-                "console.log(sum);console.log(sum.apply(null, numbers));",
-                "console.log(...numbers));console.log(sum.apply(null, numbers));",
-                "console.log(sum(...numbers)); console.log(sum.apply(null, numbers));"
-            ],
+                [
+                    "console.log(sum(...numbers));console.log(apply(null, numbers));",
+                    "console.log(sum);console.log(sum.apply(null, numbers));",
+                    "console.log(...numbers));console.log(sum.apply(null, numbers));",
+                    "console.log(sum(...numbers)); console.log(sum.apply(null, numbers));"
+                ],
             answer: "console.log(sum(...numbers));console.log(sum.apply(null, numbers));"
         },
         {
+            id: 4,
             topic: "Oh no. The hackers have taken complete control of communications. Try to filter everything out so that the hacker parts are isolated. Const communications:  [`radio`, `hackerTransmitter`, `wires`, `hackerCopyMessage`, `alienComputerChip`]",
             choices:
-            [
-                "const filtered= arr.filter(element => 1 || element 3);console.log(filtered);",
-                "const filtered= arr.filter(1 || 3);console.log(filtered);",
-                "const filtered= arr.filter(element => === 1 || element === 3);console.log(filtered);",
-                "const filtered= arr.filter(element => === 1 && element === 3);console.log(filtered);"
-            ],
+                [
+                    "const filtered= arr.filter(element => 1 || element 3);console.log(filtered);",
+                    "const filtered= arr.filter(1 || 3);console.log(filtered);",
+                    "const filtered= arr.filter(element => === 1 || element === 3);console.log(filtered);",
+                    "const filtered= arr.filter(element => === 1 && element === 3);console.log(filtered);"
+                ],
             answer: "const filtered= arr.filter(element => === 1 || element === 3);console.log(filtered);"
         },
         {
+            id: 5,
             topic: "The last step to fix the rocket ship is to reverse and combine the super secret password. Const password = [`f`, `f` ,`o`, `t`, `s`,`a` `l`, `b`]",
             choices:
-            [
-                "arr.reverse.join();console.log(arr.join(``))",
-                "arr.reverse();console.log(arr(``))",
-                "arr.reverse(); console.log(arr.join(``))",
-                "arr.reverse();sum(arr.join(``))"
-        ],
+                [
+                    "arr.reverse.join();console.log(arr.join(``))",
+                    "arr.reverse();console.log(arr(``))",
+                    "arr.reverse(); console.log(arr.join(``))",
+                    "arr.reverse();sum(arr.join(``))"
+                ],
             answer: "arr.reverse();console.log(arr.join(``));"
         },
     ]
@@ -72,11 +77,16 @@ function GameContainer() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [modTxt, setModTxt] = useState('');
     const [answer, setAnswer] = useState('');
+    const [choicesTxt, setChoicesTxt] = useState('');
+
+
+
+
 
     return (
         <>
-        <GameBg onOpen={onOpen} loading={loading} />
-        <GameModal modTxt={modTxt}  setAnswer={setAnswer} isOpen={isOpen} onClose={onClose} />
+            <GameBg onOpen={onOpen} loading={loading} />
+            <GameModal modTxt={modTxt} questions={questions} setAnswer={setAnswer} choicesTxt={choicesTxt} isOpen={isOpen} onClose={onClose} />
         </>
     );
 }
