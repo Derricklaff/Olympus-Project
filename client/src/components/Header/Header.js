@@ -9,7 +9,7 @@ function Header() {
 
     return (
         <header>
-            <HStack boxShadow='base' p={7} justify='space-between'>
+            <HStack bgColor={colorMode === 'dark' ? 'black' : 'none'} width='100%' wrap='wrap' boxShadow='base' p={7} justify='space-between'>
                 <div>
                     <Link to="/">
                         <HStack align='center'>
@@ -23,8 +23,8 @@ function Header() {
                     </Link>
                 </div>
                 <div>
-                    <HStack align='center'>
-                        <Button bgColor='tomato' color={colorMode === 'light' ? 'black' : 'white'} as={IconButton} onClick={toggleColorMode} icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon /> }/>
+                    <HStack justify='center' align='center'>
+                        <Button bgColor='tomato' as={IconButton} onClick={toggleColorMode} icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon /> }/>
                         <LinkMenu />
                     </HStack>
                 </div>

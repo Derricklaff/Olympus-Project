@@ -5,7 +5,7 @@ import background from '../../images/background.png';
 function GameArea({ onOpen }) {
     return (
         <>
-            <Card align='center' justify='center'>
+            <Card bgColor='none' align='center' justify='center'>
                 <CardBody>
                 <Flex align='center' justify='center' >
                     <Image
@@ -20,7 +20,7 @@ function GameArea({ onOpen }) {
                     />
                 </Flex>
                 <Flex align='baseline' justify='center' >
-                    <Card>
+                    <Card bgColor='none'>
                         <CardBody>
                             <IconButton colorScheme='blue' aria-label='Open game terminal' icon={<SettingsIcon />} size='lg' onClick={() => onOpen()}/>
                         </CardBody>
