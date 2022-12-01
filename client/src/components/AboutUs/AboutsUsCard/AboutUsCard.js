@@ -1,9 +1,34 @@
 import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Link, Flex, Avatar, Box } from '@chakra-ui/react'
-import { useState } from 'react';
-import StripeContainer from '../../Stripe/StripeContainer';
+import { useState, useEffect } from 'react';
+// import StripeContainer from '../Stripe/StripeContainer';
+import { loadStripe } from '@stripe/stripe-js';
+import { useLazyQuery } from '@apollo/client';
+import { QUERY_CHECKOUT } from '../../../utils/queries';
+
+
+const stripePromise = loadStripe("pk_test_51M9b6wJfacGwExOb03mskYA5m8ElF0FDU4U5c6wu88RNJUklfvxKofupCKOd5UVBOw2w6XwbuXtRaoFiV3MUFST800jLUmyltK")
 
 function AboutUsCard() {
+    const [getCheckout, {data}] = useLazyQuery(QUERY_CHECKOUT)
     const [showItem, setShowItem] = useState(false)
+    useEffect(() => {
+        if (data) {
+            stripePromise.then((res) => {
+                res.redirectToCheckout({ sessionId: data.checkout.session });
+            });
+        }
+    }, [data])
+
+    async function handleDonateSubmit(e) {
+        e.preventDefault();
+        console.log('hello world')
+        try {
+            await getCheckout()
+        } catch (error) {
+            console.log(error)
+            
+        }
+    }
     return (
         <>
             <Card>
@@ -129,13 +154,13 @@ function AboutUsCard() {
                             </Link>
                         </CardFooter>
                     </Card>
-                    {showItem && <StripeContainer setShowItem={setShowItem}>
-                    </StripeContainer>}
-                    <Button onClick={() => setShowItem(!showItem)}>
-                        Buy us a cup of coffee
-                    </Button>
-                </CardFooter>
-            </Card>
+                    {/* <Link href='http://localhost:3000/order-preview' isExternal> */}
+                                <Button onClick={handleDonateSubmit} >
+                                    Buy the developers a coffee
+                                </Button>
+                            {/* </Link> */}
+            </CardFooter>
+        </Card>
         </>
     );
 }

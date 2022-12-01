@@ -10,7 +10,8 @@ import HomePage from './pages/Homepage/Homepage';
 import SignInPage from './pages/SingInPage/SignInPage';
 import SignUpPage from './pages/SignupPage/SignUpPage';
 import AboutUs from './pages/AboutUs/AboutUs';
-import GamePage from './pages/GamePage/GamePage'
+import GamePage from './pages/GamePage/GamePage';
+import OrderPreview from './components/Stripe/OrderPreview';
 import { setContext } from '@apollo/client/link/context';
 
 
@@ -55,6 +56,10 @@ function App() {
             <Route 
               path='/about-us' 
               element={<AboutUs />} 
+            />
+            <Route 
+              path='/order-preview' 
+              element={<OrderPreview />} 
             />
             <Route
               path='/play-game'

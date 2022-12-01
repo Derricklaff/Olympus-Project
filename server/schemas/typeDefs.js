@@ -9,6 +9,10 @@ const typeDefs = gql`
     checkpoint: Int
   }
 
+  type Checkout {
+    session: ID
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -16,6 +20,7 @@ const typeDefs = gql`
 
   type Query {
     user: User
+    checkout: Checkout
   }
 
   type Mutation {
