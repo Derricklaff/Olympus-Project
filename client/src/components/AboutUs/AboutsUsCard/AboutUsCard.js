@@ -1,4 +1,16 @@
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Link, Flex, Avatar, Box } from '@chakra-ui/react'
+import { 
+    Card,
+    CardHeader,
+    CardBody,
+    CardFooter,
+    Heading,
+    Text,
+    Button,
+    Link,
+    Flex,
+    Avatar,
+    Box,
+} from '@chakra-ui/react';
 import StripeContainer from '../../Stripe/StripeContainer';
 
 function AboutUsCard() {
