@@ -48,8 +48,7 @@ const resolvers = {
       if (password.length < 8) {
         return new Error('Password must be at least 8 characters long')
       }
-      w
-      const user = await User.create({ username, email, passord });
+      const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
     },
