@@ -1,6 +1,5 @@
 import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Link, Flex, Avatar, Box } from '@chakra-ui/react'
 import { useState, useEffect } from 'react';
-// import StripeContainer from '../Stripe/StripeContainer';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../../../utils/queries';
