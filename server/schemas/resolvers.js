@@ -17,7 +17,7 @@ const resolvers = {
       const payment = await stripe.products.create({
         name: 'Developer Coffee',
         description: 'Donation to the developers of the game',
-        images: ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"]
+        images: ["https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"]
       })
 
       const price = await stripe.prices.create({
