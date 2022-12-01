@@ -5,7 +5,7 @@ function SignInLink() {
     return(
         <>
         <Link as={ReactLink} to='/sign-in'>
-            <MenuItem>
+            <MenuItem color='tomato'>
                 Sign In
             </MenuItem>
         </Link>
