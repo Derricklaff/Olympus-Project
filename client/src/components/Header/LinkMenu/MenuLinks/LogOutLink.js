@@ -5,7 +5,7 @@ function LogOutLink() {
     return(
         <>
         <Link onClick={Auth.logout}>
-            <MenuItem>
+            <MenuItem color='tomato'>
                 Logout
             </MenuItem>
         </Link>

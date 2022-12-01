@@ -21,7 +21,7 @@ function LinkMenu() {
                 as={IconButton}
                 aria-label='Options'
                 icon={<HamburgerIcon />}
-                variant='outline'
+                bgColor='tomato'
             />
             <MenuList>
                 <HomeLink />
