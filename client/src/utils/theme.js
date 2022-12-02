@@ -14,6 +14,9 @@ const theme = extendTheme({ config, styles: {
     global: (props) => ({
       'html, body': {
         fontFamily: 'Roboto Mono, monospace',
+      },
+      'h1, h2, h3, h4': {
+        fontFamily: 'Roboto Mono, monospace',
       }
     }),
   }  
