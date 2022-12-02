@@ -73,7 +73,7 @@ const SignUpForm = () => {
                 {({ field, form }) => (
                   <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
                     <FormLabel>Enter Username</FormLabel>
-                    <Input {...field} placeholder='username' type='text' bgColor={colorMode === 'light' ? 'white' : 'none'}/>
+                    <Input {...field} placeholder='username' type='text' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white'/>
                     <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                   </FormControl>
                 )}
@@ -82,7 +82,7 @@ const SignUpForm = () => {
                 {({ field, form }) => (
                   <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
                     <FormLabel>Enter Email</FormLabel>
-                    <Input {...field} placeholder='email' type='email' bgColor={colorMode === 'light' ? 'white' : 'none'}/>
+                    <Input {...field} placeholder='email' type='email' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white'/>
                     <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                   </FormControl>
                 )}
@@ -92,9 +92,9 @@ const SignUpForm = () => {
                   <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
                     <FormLabel>Enter Password</FormLabel>
                     <InputGroup>
-                      <Input {...field} placeholder='password' type={show ? 'text' : 'password'} bgColor={colorMode === 'light' ? 'white' : 'none'}/>
+                      <Input {...field} placeholder='password' type={show ? 'text' : 'password'} bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' />
                       <InputRightElement width='4.5rem'>
-                        <Button bgColor={colorMode === 'dark' ? 'black' : 'tomato'} h='1.75rem' size='sm' onClick={handleClick}>
+                        <Button h='1.75rem' size='sm' onClick={handleClick} bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'}>
                           {show ? 'Hide' : 'Show'}
                         </Button>
                       </InputRightElement>
@@ -105,7 +105,8 @@ const SignUpForm = () => {
               </Field>
               <Button
                 mt={4}
-                bgColor={colorMode === 'dark' ? 'black' : 'white'}
+                bgColor={colorMode === 'dark' ? 'white' : 'black'}
+                textColor={colorMode === 'dark' ? 'black' : 'white'}
                 isLoading={props.isSubmitting}
                 type='submit'
               >
@@ -123,63 +124,3 @@ const SignUpForm = () => {
 }
 
 export default SignUpForm;
-
-
-
-
-
-
-//     <>
-//       {/* This is needed for the validation functionality above */}
-//       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-//         {/* show alert if server response is bad */}
-//         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-//           Something went wrong with your signup!
-//         </Alert>
-
-//         <Form.Group>
-//           <Form.Label htmlFor='username'>Username</Form.Label>
-//           <Form.Control
-//             type='text'
-//             placeholder='Your username'
-//             name='username'
-//             onChange={handleInputChange}
-//             value={userFormData.username}
-//             required
-//           />
-//           <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
-//         </Form.Group>
-
-//         <Form.Group>
-//           <Form.Label htmlFor='email'>Email</Form.Label>
-//           <Form.Control
-//             type='email'
-//             placeholder='Your email address'
-//             name='email'
-//             onChange={handleInputChange}
-//             value={userFormData.email}
-//             required
-//           />
-//           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-//         </Form.Group>
-
-//         <Form.Group>
-//           <Form.Label htmlFor='password'>Password</Form.Label>
-//           <Form.Control
-//             type='password'
-//             placeholder='Your password'
-//             name='password'
-//             onChange={handleInputChange}
-//             value={userFormData.password}
-//             required
-//           />
-//           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-//         </Form.Group>
-//         <Button
-//           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
-//           type='submit'
-//           variant='success'>
-//           Submit
-//         </Button>
-//       </Form>
-//     </>

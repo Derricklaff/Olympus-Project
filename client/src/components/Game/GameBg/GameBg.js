@@ -1,4 +1,4 @@
-import { Box, Flex, Heading } from '@chakra-ui/react';
+import { Box, Stack, Heading } from '@chakra-ui/react';
 import backdrop from '../../images/backdrop.png';
 import GameArea from '../GameArea/GameArea';;
 
@@ -8,17 +8,14 @@ function GameBg({ onOpen, loading }) {
         <Box
         bgImage={backdrop}
         bgPosition="center"
-        bgRepeat="no-repeat"
-        pos="fixed" 
-        w="100%"
-        h='100%'
+        bgRepeat="no-repeat" 
+        minW="100vw"
+        minH='100vh'
         zIndex={-1}
         >
-            { loading ? <Heading as='h2'>Loading</Heading> : 
-            <Flex align='center' justify='center' >
-                <GameArea onOpen={onOpen} />
-            </Flex>
-            }
+            <Stack justify='center'>
+            { loading ? <Heading as='h2'>Loading</Heading> : <GameArea onOpen={onOpen} />}
+            </Stack>
         </Box>
         </>
     )
