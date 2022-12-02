@@ -17,12 +17,12 @@ function GameContainer() {
             topic: "System error: Pick the right function definition",
             choices:
                 [
-                    "function KeepPowerOn() { const data = await fetch(...) ... };",
-                    "function KeepPowerOn(async) { const data = await fetch(...) ... };",
-                    "const KeepPowerOn = async () => { const data = await fetch(...) ... };",
-                    "const KeepPowerOn = () async { const data = await fetch(...) ... };",
+                    "function KeepPowerOn() { const data = await fetch(...) ... }",
+                    "function KeepPowerOn(async) { const data = await fetch(...) ... }",
+                    "const KeepPowerOn = async () => { const data = await fetch(...) ... }",
+                    "const KeepPowerOn = () async { const data = await fetch(...) ... }",
                 ],
-            answer: "const KeepPowerOn = async () => { const data = await fetch(...) ... };"
+            answer: "const KeepPowerOn = async () => { const data = await fetch(...) ... }"
         },
         {
             id: 2,
@@ -41,36 +41,36 @@ function GameContainer() {
             topic: "System error: Fix element",
             choices:
                 [
-                    "function LifeSupportView() { return ( <OxygenSupply /> <EnergyLevels /> ) };",
-                    "function LifeSupportView() { return ( <OxygenSupply { <EnergyLevels /> } /> )};",
-                    "function LifeSupportView() { return ( <OxygenSupply <EnergyLevels /> /> )};",
-                    "function LifeSupportView() { return ( <> <OxygenSupply /> <EnergyLevels /> </>)};"
+                    "function LifeSupportView() { return ( <OxygenSupply /> <EnergyLevels /> ) }",
+                    "function LifeSupportView() { return ( <OxygenSupply { <EnergyLevels /> } /> )}",
+                    "function LifeSupportView() { return ( <OxygenSupply <EnergyLevels /> /> )}",
+                    "function LifeSupportView() { return ( <> <OxygenSupply /> <EnergyLevels /> </>)}"
                 ],
-            answer: "function LifeSupportView() { return ( <> <OxygenSupply /> <EnergyLevels /> </>)};"
+            answer: "function LifeSupportView() { return ( <> <OxygenSupply /> <EnergyLevels /> </>)}"
         },
         {
             id: 4,
-            topic: "System error: ",
+            topic: "System error: Fix database typedef",
             choices:
                 [
-                    "const filtered= arr.filter(element => 1 || element 3);console.log(filtered);",
-                    "const filtered= arr.filter(1 || 3);console.log(filtered);",
-                    "const filtered= arr.filter(element => === 1 || element === 3);console.log(filtered);",
-                    "const filtered= arr.filter(element => === 1 && element === 3);console.log(filtered);"
+                    "type Engine { _id: ID, fuelLevel: Number!, selfDestruct: Boolean }",
+                    "query Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }",
+                    "mutation Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }",
+                    "type Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }"
                 ],
-            answer: "const filtered= arr.filter(element => === 1 || element === 3);console.log(filtered);"
+            answer: "type Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }"
         },
         {
             id: 5,
-            topic: "System error: Return a NEW array of objects",
+            topic: "System error: Fix the resolver",
             choices:
                 [
-                    "arr.reverse.join();console.log(arr.join(``))",
-                    "arr.reverse();console.log(arr(``))",
-                    "arr.reverse();console.log(arr.join(``));",
-                    "arr.reverse();sum(arr.join(``))"
+                    "Mutation: noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}",
+                    "noExplode: async ({ lifeSupport, oxygenSupple, energy }, context) {...}",
+                    "type: noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}",
+                    ": noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}"
                 ],
-            answer: "arr.reverse();console.log(arr.join(``));"
+            answer: "Mutation: noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}"
         },
     ]
     const { loading, data } = useQuery(QUERY_USER);
@@ -94,7 +94,7 @@ function GameContainer() {
 
         toast({
             title: 'Please wait',
-            description: 'Compilation in progress...',
+            description: 'Compiling...',
             status: 'warning',
             duration: 800,
             isClosable: true,
@@ -111,7 +111,6 @@ function GameContainer() {
                   });
                 if (CurrentQuestion < questions.length - 1) {
                     setCurrentQuestion(CurrentQuestion + 1)
-                    console.log(CurrentQuestion);
                     if (Auth.loggedIn) {
                         await saveCheckpoint({
                             variables: {
@@ -129,9 +128,14 @@ function GameContainer() {
                     }
                     onClose()
                     setGameEnd(true)
+                    toast({
+                        title: 'Success',
+                        description: 'You have successfully fixed all the bugs! Olympus is no longer going to explode... I think.',
+                        status: 'success',
+                        isClosable: true,
+                      });
                 }
             } else {
-                console.log(checkpoint);
                 toast({
                     title: 'Error',
                     description: 'Unresolved compilation problem',
