@@ -21,7 +21,7 @@ function Greeting() {
             <Box >
                 <Center>
                     <Card
-                        m={[20]}
+                        mt={50}
                         p={6}
                         maxW={'1500px'}
                         bgColor='tomato'
@@ -29,26 +29,34 @@ function Greeting() {
                         rounded={'30'}
                         pos={'relative'}
                     >
-
                         <CardHeader>
-                            <Heading as='h2' size='lg' align='center'>
+                            <Heading fontFamily='Roboto Mono' as='h2' fontSize='4xl' align='center'>
                                 Welcome to Olympus Project!
                             </Heading>
                             <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'} />
                         </CardHeader>
                         <CardBody>
-                            <Text align='center' fontSize='4xl'>
-                                Welcome to our game!
+                            <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'>
+                            Congratulations on landing your dream job as a developer here on the Olympus Space Station! Now that you signed your contract, it seems
+                            appropriate to let you know that we have just laid off 80% of our work force and have application breaking errors showing up
+                            in our code.
                             </Text>
-                            <Text align='center' fontSize='4xl'>Your rocket has lost power and is stuck on an unkown planet in a far away star system!</Text>
-                            <Text align='center' fontSize='4xl'>Solve all the tasks, restore power to your ship, and get home!</Text>
-                            <Text align='center' fontSize='4xl'><Link fontSize='4xl' colorScheme='red'>Log In </Link>or <Link colorScheme='red' fontSize='4xl'>Sign Up</Link> to save your mission progress! Or just play as a guest!</Text>
+                            <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'>
+                            Help the AI review the code in our system and fix what is needed. You will be asked a series of questions and it is up
+                            to you to pick the right solution. Solve all the problems and the Space Station probably won't explode.
+                            </Text>
+                            <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'>
+                                Good Luck!
+                            </Text>
+                            <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'><Link fontSize='4xl' colorScheme='red'>Log In </Link>or <Link colorScheme='red' fontSize='4xl'>Sign Up</Link> to save your mission progress! Or just play as a guest!</Text>
                         </CardBody>
+                        <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'} />
                         <CardFooter align='center' justify='center'>
                             <Link as={ReactLink} to='/play-game'>
                                 <Button
                                     bgColor={colorMode === 'dark' ? 'white' : 'black'}
                                     textColor={colorMode === 'dark' ? 'black' : 'white'}
+                                    fontFamily='Roboto Mono'
                                 >
                                     Start Hacking
                                 </Button>

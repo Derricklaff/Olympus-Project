@@ -47,11 +47,10 @@ const LoginForm = () => {
 
   return (
     <>
-    <Flex align='center' justify='center' mt={100}>
+    <Flex align='center' justify='center' mt={50}>
     <Card boxShadow='dark-lg' bgColor='tomato' width={500} >
       <CardHeader>
-        
-        <Heading as='h2' size='lg'>
+        <Heading fontFamily='Roboto Mono' as='h2' size='lg'>
           Sign In
         </Heading>
       </CardHeader>
@@ -69,8 +68,8 @@ const LoginForm = () => {
               <Field name='email'>
                 {({ field, form }) => (
                   <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
-                    <FormLabel>Enter Email</FormLabel>
-                    <Input {...field} placeholder='email' type='email' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' />
+                    <FormLabel fontFamily='Roboto Mono' >Enter Email</FormLabel>
+                    <Input {...field} placeholder='email' type='email' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' fontFamily='Roboto Mono' />
                     <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                   </FormControl>
                 )}
@@ -78,11 +77,11 @@ const LoginForm = () => {
               <Field name='password'>
                 {({ field, form }) => (
                   <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
-                    <FormLabel>Enter Password</FormLabel>
+                    <FormLabel fontFamily='Roboto Mono' >Enter Password</FormLabel>
                     <InputGroup>
-                      <Input {...field} placeholder='password' type={show ? 'text' : 'password'} bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white'/>
+                      <Input {...field} placeholder='password' type={show ? 'text' : 'password'} bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' fontFamily='Roboto Mono'/>
                       <InputRightElement width='4.5rem'>
-                        <Button bgColor={colorMode === 'dark' ? 'white' : 'black'} h='1.75rem' size='sm'  onClick={handleClick} textColor={colorMode === 'dark' ? 'black' : 'white'}>
+                        <Button bgColor={colorMode === 'dark' ? 'white' : 'black'} h='1.75rem' size='sm'  onClick={handleClick} textColor={colorMode === 'dark' ? 'black' : 'white'} fontFamily='Roboto Mono'>
                           {show ? 'Hide' : 'Show'}
                         </Button>
                       </InputRightElement>
@@ -96,6 +95,7 @@ const LoginForm = () => {
                 bgColor={colorMode === 'dark' ? 'white' : 'black'}
                 isLoading={props.isSubmitting}
                 textColor={colorMode === 'dark' ? 'black' : 'white'}
+                fontFamily='Roboto Mono'
                 type='submit'
               >
                 Submit

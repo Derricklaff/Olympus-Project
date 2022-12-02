@@ -4,7 +4,7 @@ import Auth from '../../../../utils/auth';
 function LogOutLink() {
     return(
         <>
-        <Link onClick={Auth.logout}>
+        <Link fontFamily='Roboto Mono' onClick={Auth.logout}>
             <MenuItem color='tomato'>
                 Logout
             </MenuItem>

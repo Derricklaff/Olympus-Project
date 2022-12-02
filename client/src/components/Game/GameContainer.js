@@ -81,7 +81,14 @@ function GameContainer() {
     const [GameEnd, setGameEnd] = useState(false)
     const toast = useToast()
     const checkpoint = data?.user.checkpoint || 0
+    let index = 0;
 
+    if(Auth.loggedIn && CurrentQuestion < checkpoint) {
+        for(let i = 0; i < checkpoint; i++) {
+            index++;
+        }
+        setCurrentQuestion(index)
+    }
 
     const handleFormSubmit = async () => {
 
@@ -104,10 +111,11 @@ function GameContainer() {
                   });
                 if (CurrentQuestion < questions.length - 1) {
                     setCurrentQuestion(CurrentQuestion + 1)
+                    console.log(CurrentQuestion);
                     if (Auth.loggedIn) {
                         await saveCheckpoint({
                             variables: {
-                                checkpoint: CurrentQuestion
+                                checkpoint: CurrentQuestion + 1
                             }
                         })
                     }

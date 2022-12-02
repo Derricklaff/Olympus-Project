@@ -4,7 +4,7 @@ import { Link as ReactLink } from "react-router-dom";
 function PlayGameLink() {
     return(
         <>
-        <Link as={ReactLink} to='/play-game'>
+        <Link fontFamily='Roboto Mono' as={ReactLink} to='/play-game'>
             <MenuItem color='tomato'>
                 Start Hacking
             </MenuItem>
