@@ -10,7 +10,6 @@ import {
 import GameModal from './GameModal/GameModal';
 import GameBg from './GameBg/GameBg';
 
-
 function GameContainer() {
     const questions = [
         {
@@ -103,10 +102,6 @@ function GameContainer() {
             }
         }
     }
-
-
-
-
 
     return (
         <>
