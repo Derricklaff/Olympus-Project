@@ -13,7 +13,7 @@ import {
     Center,
     Stack,
     useColorMode,
-    useColorModeValue,
+    Divider,
     HStack,
     VStack
 } from '@chakra-ui/react'
@@ -27,7 +27,9 @@ import { QUERY_CHECKOUT } from '../../../utils/queries';
 const stripePromise = loadStripe("pk_test_51M9b6wJfacGwExOb03mskYA5m8ElF0FDU4U5c6wu88RNJUklfvxKofupCKOd5UVBOw2w6XwbuXtRaoFiV3MUFST800jLUmyltK")
 
 
+
 function AboutUsCard() {
+    const { colorMode } = useColorMode();
     const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT)
     useEffect(() => {
         if (data) {
@@ -49,9 +51,11 @@ function AboutUsCard() {
     }
     return (
         <>
-            <Box >
+            <Box>
+
                 <Card >
                     <CardHeader>
+                        
                         <Heading as='h2' size='lg' align='center'>
                             About Us
                         </Heading>
@@ -67,6 +71,7 @@ function AboutUsCard() {
                                                     About The Game
                                                 </Heading>
                                             </CardHeader>
+                                            <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'}/>
                                             <CardBody>
                                                 <Text align='center' fontSize='md'>
                                                     Hello, and welcome to the Olympus-project. A fun and interactive video that reviews
@@ -85,6 +90,7 @@ function AboutUsCard() {
                                             About The Developers
                                         </Heading>
                                     </CardHeader>
+                                    <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'}/>
                                     <CardBody>
                                         <Text align='center' fontSize='md'>
                                             This program was created by three talented full stack web developers; Tristan Saragosa,
@@ -109,6 +115,7 @@ function AboutUsCard() {
                                                 <Avatar name='Gayle Hoefer' alt='profile picture' src='https://picsum.photos/id/237/200/300' />
                                                 <Box>
                                                     <Heading size='sm'>Gayle Hoefer</Heading>
+                                                    <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'}/>
                                                     <Text>Creator, Full Stack Web Developer</Text>
                                                 </Box>
                                             </Flex>
@@ -137,6 +144,7 @@ function AboutUsCard() {
                                                 <Avatar name='Derrick Lafforthun' alt='profile picture' src='https://picsum.photos/id/433/200/300' />
                                                 <Box>
                                                     <Heading size='sm'>Derrick Lafforthun</Heading>
+                                                    <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'}/>
                                                     <Text>Creator, Full Stack Web Developer</Text>
                                                 </Box>
                                             </Flex>
@@ -165,6 +173,7 @@ function AboutUsCard() {
                                                 <Avatar name='Tristan Saragosa' alt='profile picture' src='https://picsum.photos/id/274/200/300/' />
                                                 <Box>
                                                     <Heading size='sm'>Tristan Saragosa</Heading>
+                                                    <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'}/>
                                                     <Text>Creator, Full Stack Web Developer</Text>
                                                 </Box>
                                             </Flex>
@@ -189,8 +198,8 @@ function AboutUsCard() {
                                 </HStack>
                         <Button
                             onClick={handleDonateSubmit}
-                            bgColor={useColorMode === 'dark' ? 'white' : 'black'}
-                            textColor={useColorMode === 'dark' ? 'black' : 'white'}
+                            bgColor={colorMode === 'dark' ? 'white' : 'black'}
+                            textColor={colorMode === 'dark' ? 'black' : 'white'}
                         >
                             Buy the developers a coffee
                         </Button>
