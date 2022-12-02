@@ -2,7 +2,7 @@ import { Box, Stack, Heading } from '@chakra-ui/react';
 import backdrop from '../../images/backdrop.png';
 import GameArea from '../GameArea/GameArea';;
 
-function GameBg({ onOpen, loading }) {
+function GameBg({ onOpen, loading, GameEnd }) {
     return (
         <>
         <Box

@@ -1,7 +1,7 @@
 import { Heading, HStack, IconButton, Button, useColorMode} from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import LinkMenu from './LinkMenu/LinkMenu';
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 function Header() {
 

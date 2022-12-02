@@ -11,7 +11,7 @@ import {
   } from '@chakra-ui/react';
 
   function LoginModal({ isOpen, onClose }) {
-
+  
     return (
         <>
         <Modal
@@ -20,19 +20,19 @@ import {
         isOpen={isOpen}
         motionPreset='slideInBottom'
         >
-        <ModalOverlay />
+        <ModalOverlay/>
         <ModalContent>
-          <ModalHeader>
+          <ModalHeader textColor='tomato'>
             Please Retry
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton bgColor='tomato'/>
           <ModalBody>
-            <Text>
+            <Text textColor='tomato'>
                 Incorrect account information
             </Text>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
+            <Button bgColor='tomato' mr={3} onClick={onClose}>
               Close
             </Button>
           </ModalFooter>

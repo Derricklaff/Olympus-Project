@@ -1,8 +1,10 @@
 import { Image, Card, CardBody, VStack, IconButton } from '@chakra-ui/react';
 import { SettingsIcon } from '@chakra-ui/icons'
 import background from '../../images/background.png';
+import ComputerGreen from '../../images/ComputerGreen.gif'
+import ComputerRed from '../../images/ComputerRed.gif'
 
-function GameArea({ onOpen }) {
+function GameArea({ onOpen, GameEnd }) {
     return (
         <>
             <Card mt={105} bgColor='none' >
