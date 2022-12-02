@@ -20,7 +20,7 @@ import {
         isOpen={isOpen}
         motionPreset='slideInBottom'
         >
-        <ModalOverlay />
+        <ModalOverlay/>
         <ModalContent>
           <ModalHeader>
             Please Retry
@@ -32,7 +32,7 @@ import {
             </Text>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
+            <Button bgColor='tomato' mr={3} onClick={onClose}>
               Close
             </Button>
           </ModalFooter>

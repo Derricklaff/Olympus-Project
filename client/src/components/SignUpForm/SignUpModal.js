@@ -32,7 +32,7 @@ import {
             </Text>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
+            <Button bgColor='tomato' mr={3} onClick={onClose}>
               Close
             </Button>
           </ModalFooter>

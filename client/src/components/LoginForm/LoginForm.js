@@ -50,6 +50,7 @@ const LoginForm = () => {
     <Flex align='center' justify='center' mt={100}>
     <Card boxShadow='dark-lg' bgColor='tomato' width={500} >
       <CardHeader>
+        
         <Heading as='h2' size='lg'>
           Sign In
         </Heading>
