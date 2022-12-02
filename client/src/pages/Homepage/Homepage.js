@@ -7,7 +7,6 @@ function HomePage() {
         <>
             <Header />
             <Greeting />
-            < GameModal />
 
         </>
     );

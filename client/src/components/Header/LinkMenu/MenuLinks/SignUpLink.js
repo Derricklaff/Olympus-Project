@@ -5,7 +5,7 @@ function SignUpLink() {
     return(
         <>
         <Link as={ReactLink} to='/sign-up'>
-            <MenuItem>
+            <MenuItem color='tomato' >
                 Sign Up
             </MenuItem>
         </Link>

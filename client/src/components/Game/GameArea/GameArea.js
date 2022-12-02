@@ -3,10 +3,11 @@ import { SettingsIcon } from '@chakra-ui/icons'
 import background from '../../images/background.png';
 import ComputerGreen from '../../images/ComputerGreen.gif'
 import ComputerRed from '../../images/ComputerRed.gif'
-function GameArea({ onOpen }) {
+
+function GameArea({ onOpen, GameEnd }) {
     return (
         <>
-            <Card align='center' justify='center'>
+            <Card bgColor='none' border='none' align='center' justify='center'>
                 <CardBody>
                     <Flex align='center' justify='center' >
                         <Image
@@ -20,14 +21,10 @@ function GameArea({ onOpen }) {
                             alt='Dan Abramov'
                         />
                     </Flex>
-                    <Flex align='baseline' justify='center' >
-                        <Card>
-                            <CardBody>
-                                <button onClick={() => onOpen()} src={ComputerRed}> <Image src={ComputerRed} /></button>
-                            </CardBody>
-                        </Card>
-                    </Flex>
                 </CardBody>
+                <Flex justify='center'>
+                    <button onClick={() => onOpen()} src={ComputerRed}> <Image src={!GameEnd ? ComputerRed : ComputerGreen} /></button>
+                </Flex>
             </Card>
         </>
     );

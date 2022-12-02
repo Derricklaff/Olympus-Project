@@ -5,7 +5,7 @@ function AboutUsLink() {
     return(
         <>
         <Link as={ReactLink} to='/about-us'>
-            <MenuItem>
+            <MenuItem color='tomato' >
                 About Us
             </MenuItem>
         </Link>

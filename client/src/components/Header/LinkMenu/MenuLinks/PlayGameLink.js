@@ -5,7 +5,7 @@ function PlayGameLink() {
     return(
         <>
         <Link as={ReactLink} to='/play-game'>
-            <MenuItem>
+            <MenuItem color='tomato'>
                 Start Hacking
             </MenuItem>
         </Link>

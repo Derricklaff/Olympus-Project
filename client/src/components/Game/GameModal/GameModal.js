@@ -6,21 +6,18 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
-  Box,
   Button,
   Center,
-  Textarea,
   Stack,
   Radio,
-  RadioGroup
+  RadioGroup,
 } from '@chakra-ui/react';
 
 import { useState } from 'react';
 
-function GameModal({ modTxt, isOpen, onClose, choicesTxt, questions }) {
+function GameModal({ setAnswer, isOpen, onClose, questions, handleFormSubmit, answer, CurrentQuestion }) {
 
-  const [CurrentQuestion, setCurrentQuestion] = useState(0)
+
 
   //   {
   //     id: 1,
@@ -35,7 +32,7 @@ function GameModal({ modTxt, isOpen, onClose, choicesTxt, questions }) {
   //     answer: "computerParts.splice(2, 1, `processor`);"
   // },
 
-  
+
 
   return (
     <>
@@ -52,22 +49,18 @@ function GameModal({ modTxt, isOpen, onClose, choicesTxt, questions }) {
           <ModalHeader textAlign='center'>{questions[CurrentQuestion].topic}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <form>
-              <Center>
-                <RadioGroup defaultValue='1'>
-                  <Stack spacing={4}>
-                    {questions[CurrentQuestion].choices.map((choice, i) => <Radio value={i} key={i}>{choice}</Radio>)}
-                  </Stack>
-                </RadioGroup>
-              </Center>
-            </form>
+            <Center>
+              <RadioGroup onChange={setAnswer} value={answer}>
+                <Stack spacing={4}>
+                  {questions[CurrentQuestion].choices.map((choice, i) => <Radio size='md' value={choice} key={i}>{choice}</Radio>)}
+                </Stack>
+              </RadioGroup>
+            </Center>
           </ModalBody>
           <ModalFooter>
-            <Center>
-              <Button onClick={onClose}>
-                Submit answer!
-              </Button>
-            </Center>
+            <Button onClick={handleFormSubmit}>
+              Submit answer!
+            </Button>
             <Button colorScheme='blue' mr={3} onClick={onClose}>
               Close
             </Button>

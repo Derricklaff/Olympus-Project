@@ -10,6 +10,7 @@ import GameModal from './GameModal/GameModal';
 import GameBg from './GameBg/GameBg';
 import { QuestionOutlineIcon } from '@chakra-ui/icons';
 
+
 function GameContainer() {
     const questions = [
         {
@@ -46,7 +47,7 @@ function GameContainer() {
                     "console.log(...numbers));console.log(sum.apply(null, numbers));",
                     "console.log(sum(...numbers)); console.log(sum.apply(null, numbers));"
                 ],
-            answer: "console.log(sum(...numbers));console.log(sum.apply(null, numbers));"
+            answer: "console.log(sum(...numbers)); console.log(sum.apply(null, numbers));"
         },
         {
             id: 4,
@@ -67,7 +68,7 @@ function GameContainer() {
                 [
                     "arr.reverse.join();console.log(arr.join(``))",
                     "arr.reverse();console.log(arr(``))",
-                    "arr.reverse(); console.log(arr.join(``))",
+                    "arr.reverse();console.log(arr.join(``));",
                     "arr.reverse();sum(arr.join(``))"
                 ],
             answer: "arr.reverse();console.log(arr.join(``));"
@@ -75,9 +76,20 @@ function GameContainer() {
     ]
     const { loading, data } = useQuery(QUERY_USER);
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const [modTxt, setModTxt] = useState('');
     const [answer, setAnswer] = useState('');
-    const [choicesTxt, setChoicesTxt] = useState('');
+    const [CurrentQuestion, setCurrentQuestion] = useState(0)
+    const [GameEnd, setGameEnd] = useState(false)
+    const handleFormSubmit = () => {
+        console.log(answer)
+        if (answer === questions[CurrentQuestion].answer) {
+            if (CurrentQuestion < questions.length - 1) {
+                setCurrentQuestion(CurrentQuestion + 1)
+            } else {
+                onClose()
+                setGameEnd(true)
+            }
+        }
+    }
 
 
 
@@ -85,8 +97,8 @@ function GameContainer() {
 
     return (
         <>
-            <GameBg onOpen={onOpen} loading={loading} />
-            <GameModal modTxt={modTxt} questions={questions} setAnswer={setAnswer} choicesTxt={choicesTxt} isOpen={isOpen} onClose={onClose} />
+            <GameBg onOpen={onOpen} loading={loading} GameEnd={GameEnd} />
+            <GameModal setAnswer={setAnswer} isOpen={isOpen} onClose={onClose} questions={questions} handleFormSubmit={handleFormSubmit} answer={answer} CurrentQuestion={CurrentQuestion} />
         </>
     );
 }
