@@ -9,7 +9,7 @@ function Header() {
 
     return (
         <header>
-            <HStack bgColor={colorMode === 'dark' ? 'black' : 'white'} width='100%' wrap='wrap' boxShadow='base' p={7} justify='space-between'>
+            <HStack bgColor={colorMode === 'dark' ? 'black' : 'white'} width='100%' wrap='wrap' boxShadow='base' p={7} align='center' justify='space-between'>
                 <div>
                     <Link to="/">
                         <HStack align='center'>

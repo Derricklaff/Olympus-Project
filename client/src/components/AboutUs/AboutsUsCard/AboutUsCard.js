@@ -17,7 +17,7 @@ import {
     HStack,
     VStack
 } from '@chakra-ui/react'
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../../../utils/queries';

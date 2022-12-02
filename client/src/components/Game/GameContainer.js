@@ -1,15 +1,14 @@
 import Auth from '../../utils/auth';
 import { useState } from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
+import { SAVE_CHECKPOINT } from '../../utils/mutations';
 import {
     useDisclosure,
     useToast,
 } from '@chakra-ui/react';
 import GameModal from './GameModal/GameModal';
 import GameBg from './GameBg/GameBg';
-import { QuestionOutlineIcon } from '@chakra-ui/icons';
-
 
 function GameContainer() {
     const questions = [
@@ -75,25 +74,66 @@ function GameContainer() {
         },
     ]
     const { loading, data } = useQuery(QUERY_USER);
+    const [saveCheckpoint] = useMutation(SAVE_CHECKPOINT);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [answer, setAnswer] = useState('');
     const [CurrentQuestion, setCurrentQuestion] = useState(0)
     const [GameEnd, setGameEnd] = useState(false)
-    const handleFormSubmit = () => {
-        console.log(answer)
-        if (answer === questions[CurrentQuestion].answer) {
-            if (CurrentQuestion < questions.length - 1) {
-                setCurrentQuestion(CurrentQuestion + 1)
+    const toast = useToast()
+    const checkpoint = data?.user.checkpoint || 0
+
+
+    const handleFormSubmit = async () => {
+
+        toast({
+            title: 'Please wait',
+            description: 'Compilation in progress...',
+            status: 'warning',
+            duration: 800,
+            isClosable: true,
+          });
+
+        setTimeout(async () => {
+            if (answer === questions[CurrentQuestion].answer) {
+                toast({
+                    title: 'Success',
+                    description: 'Compiled successfully!',
+                    status: 'success',
+                    duration: 1000,
+                    isClosable: true,
+                  });
+                if (CurrentQuestion < questions.length - 1) {
+                    setCurrentQuestion(CurrentQuestion + 1)
+                    if (Auth.loggedIn) {
+                        await saveCheckpoint({
+                            variables: {
+                                checkpoint: CurrentQuestion
+                            }
+                        })
+                    }
+                } else {
+                    if (Auth.loggedIn) {
+                        saveCheckpoint({
+                            variables: {
+                                checkpoint: 0
+                            }
+                        })
+                    }
+                    onClose()
+                    setGameEnd(true)
+                }
             } else {
-                onClose()
-                setGameEnd(true)
+                console.log(checkpoint);
+                toast({
+                    title: 'Error',
+                    description: 'Unresolved compilation problem',
+                    status: 'error',
+                    duration: 1000,
+                    isClosable: true,
+                  });
             }
-        }
+        }, 800)
     }
-
-
-
-
 
     return (
         <>
