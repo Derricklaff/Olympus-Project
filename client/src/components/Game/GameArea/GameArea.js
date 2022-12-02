@@ -6,7 +6,7 @@ import ComputerRed from '../../images/ComputerRed.gif'
 function GameArea({ onOpen, GameEnd }) {
     return (
         <>
-            <Card bgColor='none' border='none' align='center' justify='center'>
+            <Card mt={50} bgColor='none' border='none' align='center' justify='center'>
                 <CardBody>
                     <Flex align='center' justify='center' >
                         <Image

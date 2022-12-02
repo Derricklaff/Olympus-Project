@@ -34,7 +34,7 @@ function GameModal({ setAnswer, isOpen, onClose, questions, handleFormSubmit, an
             <Center>
               <RadioGroup onChange={setAnswer} value={answer}>
                 <Stack spacing={4}>
-                  {questions[CurrentQuestion].choices.map((choice, i) => <Radio colorScheme='#38A169' size='md' value={choice} key={i}><Text fontFamily='Roboto Mono' color='#38A169'>{choice}</Text></Radio>)}
+                  {questions[CurrentQuestion].choices.map((choice, i) => <Radio colorScheme='green' size='md' value={choice} key={i}><Text fontFamily='Roboto Mono' color='#38A169'>{choice}</Text></Radio>)}
                 </Stack>
               </RadioGroup>
             </Center>

@@ -14,63 +14,63 @@ function GameContainer() {
     const questions = [
         {
             id: 1,
-            topic: "Your first task to get back home is to replace the hackerCode with the computer's processor.",
+            topic: "System error: Pick the right function definition",
             choices:
                 [
-                    "computerParts.splice(1, 2, `processor`);",
-                    "computerParts.splice(2, 1, `processor`);",
-                    "computerParts.pop(2, 1, `processor`);",
-                    "computerParts.slice(2, 1, processor);"
+                    "function KeepPowerOn() { const data = await fetch(...) ... }",
+                    "function KeepPowerOn(async) { const data = await fetch(...) ... }",
+                    "const KeepPowerOn = async () => { const data = await fetch(...) ... }",
+                    "const KeepPowerOn = () async { const data = await fetch(...) ... }",
                 ],
-            answer: "computerParts.splice(2, 1, `processor`);"
+            answer: "const KeepPowerOn = async () => { const data = await fetch(...) ... }"
         },
         {
             id: 2,
-            topic: "The hacker lowered the power levels of the ship. It looks like everything is only at half power. How would you double them? Const powerLevels = [ 11, 16, 14, 9];",
+            topic: "System error: Return a NEW array of objects",
             choices:
                 [
-                    "const powerLevels = powerLevels.map(x => x*2)",
-                    "const powerLevels = powerLevels.map(x => x/2)",
-                    "const powerLevels = powerLevels*2)",
-                    "const powerLevels = x*2"
+                    "const employeeOxygenSupply = oTanks.filter((tank) => { id, ...tank});",
+                    "const employeeOxygenSupply = oTanks.map((tank) => { id, ...tank});",
+                    "const employeeOxygenSupply = oTanks.splice(1, { tank });",
+                    "const employeeOxygenSupply = oTanks.contains({ tank });"
                 ],
-            answer: "const powerLevels = powerLevels.map(x => x*2)"
+            answer: "const employeeOxygenSupply = oTanks.map((tank) => { id, ...tank});"
         },
         {
             id: 3,
-            topic: "Now that the power levels are doubled, check your math to make sure the total is 100 using the spread method. We started the code for you: Function sum(22, 32, 28, 18) {Return 22 + 32 + 28 + 18;}Const number = [22, 32, 28, 18];",
+            topic: "System error: Fix element",
             choices:
                 [
-                    "console.log(sum(...numbers));console.log(apply(null, numbers));",
-                    "console.log(sum);console.log(sum.apply(null, numbers));",
-                    "console.log(...numbers));console.log(sum.apply(null, numbers));",
-                    "console.log(sum(...numbers)); console.log(sum.apply(null, numbers));"
+                    "function LifeSupportView() { return ( <OxygenSupply /> <EnergyLevels /> ) }",
+                    "function LifeSupportView() { return ( <OxygenSupply { <EnergyLevels /> } /> )}",
+                    "function LifeSupportView() { return ( <OxygenSupply <EnergyLevels /> /> )}",
+                    "function LifeSupportView() { return ( <> <OxygenSupply /> <EnergyLevels /> </>)}"
                 ],
-            answer: "console.log(sum(...numbers)); console.log(sum.apply(null, numbers));"
+            answer: "function LifeSupportView() { return ( <> <OxygenSupply /> <EnergyLevels /> </>)}"
         },
         {
             id: 4,
-            topic: "Oh no. The hackers have taken complete control of communications. Try to filter everything out so that the hacker parts are isolated. Const communications:  [`radio`, `hackerTransmitter`, `wires`, `hackerCopyMessage`, `alienComputerChip`]",
+            topic: "System error: Fix database typedef",
             choices:
                 [
-                    "const filtered= arr.filter(element => 1 || element 3);console.log(filtered);",
-                    "const filtered= arr.filter(1 || 3);console.log(filtered);",
-                    "const filtered= arr.filter(element => === 1 || element === 3);console.log(filtered);",
-                    "const filtered= arr.filter(element => === 1 && element === 3);console.log(filtered);"
+                    "type Engine { _id: ID, fuelLevel: Number!, selfDestruct: Boolean }",
+                    "query Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }",
+                    "mutation Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }",
+                    "type Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }"
                 ],
-            answer: "const filtered= arr.filter(element => === 1 || element === 3);console.log(filtered);"
+            answer: "type Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }"
         },
         {
             id: 5,
-            topic: "The last step to fix the rocket ship is to reverse and combine the super secret password. Const password = [`f`, `f` ,`o`, `t`, `s`,`a` `l`, `b`]",
+            topic: "System error: Fix the resolver",
             choices:
                 [
-                    "arr.reverse.join();console.log(arr.join(``))",
-                    "arr.reverse();console.log(arr(``))",
-                    "arr.reverse();console.log(arr.join(``));",
-                    "arr.reverse();sum(arr.join(``))"
+                    "Mutation: noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}",
+                    "noExplode: async ({ lifeSupport, oxygenSupple, energy }, context) {...}",
+                    "type: noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}",
+                    ": noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}"
                 ],
-            answer: "arr.reverse();console.log(arr.join(``));"
+            answer: "Mutation: noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}"
         },
     ]
     const { loading, data } = useQuery(QUERY_USER);
@@ -81,13 +81,20 @@ function GameContainer() {
     const [GameEnd, setGameEnd] = useState(false)
     const toast = useToast()
     const checkpoint = data?.user.checkpoint || 0
+    let index = 0;
 
+    if(Auth.loggedIn && CurrentQuestion < checkpoint) {
+        for(let i = 0; i < checkpoint; i++) {
+            index++;
+        }
+        setCurrentQuestion(index)
+    }
 
     const handleFormSubmit = async () => {
 
         toast({
             title: 'Please wait',
-            description: 'Compilation in progress...',
+            description: 'Compiling...',
             status: 'warning',
             duration: 800,
             isClosable: true,
@@ -107,7 +114,7 @@ function GameContainer() {
                     if (Auth.loggedIn) {
                         await saveCheckpoint({
                             variables: {
-                                checkpoint: CurrentQuestion
+                                checkpoint: CurrentQuestion + 1
                             }
                         })
                     }
@@ -121,9 +128,14 @@ function GameContainer() {
                     }
                     onClose()
                     setGameEnd(true)
+                    toast({
+                        title: 'Success',
+                        description: 'You have successfully fixed all the bugs! Olympus is no longer going to explode... I think.',
+                        status: 'success',
+                        isClosable: true,
+                      });
                 }
             } else {
-                console.log(checkpoint);
                 toast({
                     title: 'Error',
                     description: 'Unresolved compilation problem',

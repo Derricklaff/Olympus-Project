@@ -50,10 +50,10 @@ const SignUpForm = () => {
 
   return (
     <>
-    <Flex align='center' justify='center' mt={100}>
+    <Flex align='center' justify='center' mt={50}>
     <Card boxShadow='dark-lg' bgColor='tomato' width={500}>
       <CardHeader>
-        <Heading as='h2' size='lg'>
+        <Heading fontFamily='Roboto Mono' as='h2' size='lg'>
           Sign Up
         </Heading>
       </CardHeader>
@@ -72,8 +72,8 @@ const SignUpForm = () => {
               <Field name='username'>
                 {({ field, form }) => (
                   <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
-                    <FormLabel>Enter Username</FormLabel>
-                    <Input {...field} placeholder='username' type='text' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white'/>
+                    <FormLabel fontFamily='Roboto Mono'>Enter Username</FormLabel>
+                    <Input {...field} placeholder='username' type='text' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' fontFamily='Roboto Mono'/>
                     <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                   </FormControl>
                 )}
@@ -81,8 +81,8 @@ const SignUpForm = () => {
               <Field name='email'>
                 {({ field, form }) => (
                   <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
-                    <FormLabel>Enter Email</FormLabel>
-                    <Input {...field} placeholder='email' type='email' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white'/>
+                    <FormLabel fontFamily='Roboto Mono'>Enter Email</FormLabel>
+                    <Input {...field} placeholder='email' type='email' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' fontFamily='Roboto Mono'/>
                     <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                   </FormControl>
                 )}
@@ -90,11 +90,11 @@ const SignUpForm = () => {
               <Field name='password'>
                 {({ field, form }) => (
                   <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
-                    <FormLabel>Enter Password</FormLabel>
+                    <FormLabel fontFamily='Roboto Mono'>Enter Password</FormLabel>
                     <InputGroup>
-                      <Input {...field} placeholder='password' type={show ? 'text' : 'password'} bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' />
+                      <Input {...field} placeholder='password' type={show ? 'text' : 'password'} bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' fontFamily='Roboto Mono'/>
                       <InputRightElement width='4.5rem'>
-                        <Button h='1.75rem' size='sm' onClick={handleClick} bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'}>
+                        <Button h='1.75rem' size='sm' onClick={handleClick} bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} fontFamily='Roboto Mono'>
                           {show ? 'Hide' : 'Show'}
                         </Button>
                       </InputRightElement>
@@ -107,6 +107,7 @@ const SignUpForm = () => {
                 mt={4}
                 bgColor={colorMode === 'dark' ? 'white' : 'black'}
                 textColor={colorMode === 'dark' ? 'black' : 'white'}
+                fontFamily='Roboto Mono'
                 isLoading={props.isSubmitting}
                 type='submit'
               >
