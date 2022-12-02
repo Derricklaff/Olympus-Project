@@ -1,45 +1,56 @@
 import {
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-    Button,
-    Text
-  } from '@chakra-ui/react';
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  Center,
+  Stack,
+  Radio,
+  RadioGroup,
+  Text,
+} from '@chakra-ui/react';
 
-  function GameModal({ modTxt, isOpen, onClose }) {
+function GameModal({ setAnswer, isOpen, onClose, questions, handleFormSubmit, answer, CurrentQuestion }) {
 
-    return (
-        <>
-        <Modal
+  return (
+    <>
+      <Modal
         isCentered
         onClose={onClose}
         isOpen={isOpen}
         motionPreset='slideInBottom'
-        >
+        size='6xl'
+        maxH="400px" maxW="500px"
+      >
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>
-            Please Retry
-          </ModalHeader>
+        <ModalContent bg='Black'>
+          <ModalHeader textAlign='center' fontFamily='Roboto Mono' textColor='#38A169'>{questions[CurrentQuestion].topic}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text>
-                {modTxt}
-            </Text>
+            <Center>
+              <RadioGroup onChange={setAnswer} value={answer}>
+                <Stack spacing={4}>
+                  {questions[CurrentQuestion].choices.map((choice, i) => <Radio colorScheme='#38A169' size='md' value={choice} key={i}><Text fontFamily='Roboto Mono' color='#38A169'>{choice}</Text></Radio>)}
+                </Stack>
+              </RadioGroup>
+            </Center>
           </ModalBody>
-          <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
+          <ModalFooter justifyContent='center' gap={4}>
+            <Button variant='link' bgColor='black' fontFamily='Roboto Mono' textColor='#38A169' onClick={handleFormSubmit}>
+              Run Code
+            </Button>
+            <Button variant='link' bgColor='black' fontFamily='Roboto Mono' textColor='#38A169' onClick={onClose}>
               Close
             </Button>
           </ModalFooter>
         </ModalContent>
-        </Modal>
-        </>
-    )
-  }
+      </Modal>
+    </>
+  )
+}
 
-  export default GameModal;
+export default GameModal;

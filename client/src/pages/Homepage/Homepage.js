@@ -4,8 +4,8 @@ import Greeting from "../../components/Greeting/Greeting";
 function HomePage() {
     return (
         <>
-        <Header />
-        <Greeting />
+            <Header />
+            <Greeting />
         </>
     );
 }

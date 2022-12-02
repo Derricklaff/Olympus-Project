@@ -5,7 +5,7 @@ function HomeLink() {
     return(
         <>
         <Link as={ReactLink} to='/'>
-            <MenuItem>
+            <MenuItem color='tomato'>
                 Home
             </MenuItem>
         </Link>

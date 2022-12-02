@@ -16,6 +16,9 @@ import {
   InputRightElement,
   InputGroup,
   useDisclosure,
+  Flex,
+  useColorMode,
+  Divider,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
@@ -24,6 +27,7 @@ const LoginForm = () => {
   const [ login ] = useMutation(LOGIN_USER);
   const [show, setShow] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { colorMode } = useColorMode();
 
   const handleFormSubmit = async (values, actions) => {
     actions.setSubmitting(false)
@@ -43,12 +47,15 @@ const LoginForm = () => {
 
   return (
     <>
-    <Card>
+    <Flex align='center' justify='center' mt={100}>
+    <Card boxShadow='dark-lg' bgColor='tomato' width={500} >
       <CardHeader>
+        
         <Heading as='h2' size='lg'>
-          Log In
+          Sign In
         </Heading>
       </CardHeader>
+      <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'}/>
       <CardBody>
         <Formik
         initialValues={{
@@ -63,7 +70,7 @@ const LoginForm = () => {
                 {({ field, form }) => (
                   <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
                     <FormLabel>Enter Email</FormLabel>
-                    <Input {...field} placeholder='email' type='email' />
+                    <Input {...field} placeholder='email' type='email' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' />
                     <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                   </FormControl>
                 )}
@@ -73,9 +80,9 @@ const LoginForm = () => {
                   <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
                     <FormLabel>Enter Password</FormLabel>
                     <InputGroup>
-                      <Input {...field} placeholder='password' type={show ? 'text' : 'password'} />
+                      <Input {...field} placeholder='password' type={show ? 'text' : 'password'} bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white'/>
                       <InputRightElement width='4.5rem'>
-                        <Button h='1.75rem' size='sm' onClick={handleClick}>
+                        <Button bgColor={colorMode === 'dark' ? 'white' : 'black'} h='1.75rem' size='sm'  onClick={handleClick} textColor={colorMode === 'dark' ? 'black' : 'white'}>
                           {show ? 'Hide' : 'Show'}
                         </Button>
                       </InputRightElement>
@@ -86,8 +93,9 @@ const LoginForm = () => {
               </Field>
               <Button
                 mt={4}
-                colorScheme='teal'
+                bgColor={colorMode === 'dark' ? 'white' : 'black'}
                 isLoading={props.isSubmitting}
+                textColor={colorMode === 'dark' ? 'black' : 'white'}
                 type='submit'
               >
                 Submit
@@ -97,6 +105,7 @@ const LoginForm = () => {
         </Formik>
       </CardBody>
     </Card>
+    </Flex>
     <LoginModal isOpen={isOpen} onClose={onClose} />
     </>
   )
