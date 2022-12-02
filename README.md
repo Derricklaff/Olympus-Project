@@ -19,7 +19,8 @@
 The Olympus Project is a review game to help student remember the different methods there are in Java Script. The user is stuck in space due to the rocket getting hack. They most use their coding knowledge to answer questions that will undo the hackers work. When they are able to get all the questions correct then they blastoff to go back home.
 
 ## Usage
-To use the application go to the website and click start hacking. From there click on the image and answer the questions as they pop up.
+To use the application go to the website and click start hacking. From there click on the image and answer the questions as they pop up. Visit
+deployed applicatio here: https://olympus-prjct.herokuapp.com
 
 ## Issue
 If there is an issue go https://github.com/trufl/Olympus-Project and create an issue.
