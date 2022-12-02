@@ -1,4 +1,17 @@
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Link, Center, Box, Stack, StackDivider, useColorMode, Divider, HStack, Flex } from '@chakra-ui/react'
+import {
+    Card,
+    CardHeader,
+    CardBody,
+    CardFooter,
+    Heading,
+    Text,
+    Button,
+    Link,
+    Center,
+    Box,
+    useColorMode,
+    Divider,
+} from '@chakra-ui/react'
 import { Link as ReactLink } from "react-router-dom";
 
 function Greeting() {

@@ -22,12 +22,12 @@ import {
         >
         <ModalOverlay/>
         <ModalContent>
-          <ModalHeader>
+          <ModalHeader textColor='tomato'>
             Please Retry
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton bgColor='tomato'/>
           <ModalBody>
-            <Text>
+            <Text textColor='tomato'>
                 Incorrect account information
             </Text>
           </ModalBody>

@@ -22,7 +22,8 @@ import {
         >
         <ModalOverlay/>
         <ModalContent>
-          <ModalHeader>
+          <ModalHeader
+          >
             Please Retry
           </ModalHeader>
           <ModalCloseButton />
