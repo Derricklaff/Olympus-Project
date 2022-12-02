@@ -55,42 +55,39 @@ function AboutUsCard() {
 
                 <Card >
                     <CardHeader>
-                        
                         <Heading as='h2' size='lg' align='center'>
                             About Us
                         </Heading>
                     </CardHeader>
-                    <CardBody >
+                    <CardBody>
                         <Center>
                             <Stack direction={['column', 'row']} spacing='24px'>
-                                <Flex justify='space-evenly'>
-                                    <Center>
-                                        <Card boxShadow='dark-lg' bgColor='tomato'>
-                                            <CardHeader>
-                                                <Heading as='h3' size='md' align='center'>
-                                                    About The Game
-                                                </Heading>
-                                            </CardHeader>
-                                            <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'}/>
-                                            <CardBody>
-                                                <Text align='center' fontSize='md'>
-                                                    Hello, and welcome to the Olympus-project. A fun and interactive video that reviews
-                                                    coding concepts covered in a coding bootcamp. The best way to learn about a new concept
-                                                    in anything is to turn it into a game. With the Olympus project, a player can review important
-                                                    concepts in coding to ensure that they are learning and retaining the content taught. If you
-                                                    like what we have created support us by buying us a cup of coffee.
-                                                </Text>
-                                            </CardBody>
-                                        </Card>
-                                    </Center>
-                                </Flex>
-                                <Card boxShadow='dark-lg' bgColor='tomato'>
+                                <Center>
+                                    <Card boxShadow='dark-lg' bgColor='tomato' width='500px'>
+                                        <CardHeader>
+                                            <Heading as='h3' size='md' align='center' >
+                                                About The Game
+                                            </Heading>
+                                        </CardHeader>
+                                        <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'} />
+                                        <CardBody>
+                                            <Text align='center' fontSize='md'>
+                                                Hello, and welcome to the Olympus-project. A fun and interactive video that reviews
+                                                coding concepts covered in a coding bootcamp. The best way to learn about a new concept
+                                                in anything is to turn it into a game. With the Olympus project, a player can review important
+                                                concepts in coding to ensure that they are learning and retaining the content taught. If you
+                                                like what we have created support us by buying us a cup of coffee.
+                                            </Text>
+                                        </CardBody>
+                                    </Card>
+                                </Center>
+                                <Card boxShadow='dark-lg' bgColor='tomato' width='500px'>
                                     <CardHeader>
                                         <Heading as='h3' size='md' align='center'>
                                             About The Developers
                                         </Heading>
                                     </CardHeader>
-                                    <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'}/>
+                                    <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'} />
                                     <CardBody>
                                         <Text align='center' fontSize='md'>
                                             This program was created by three talented full stack web developers; Tristan Saragosa,
@@ -101,108 +98,109 @@ function AboutUsCard() {
                                 </Card>
                             </Stack>
                         </Center>
+
                     </CardBody>
                     <Center>
 
                         <CardFooter>
-    
+
                             <VStack>
                                 <HStack wrap='wrap'>
-                                <Card maxW='md' boxShadow='dark-lg' bgColor='tomato'>
-                                    <CardHeader>
-                                        <Flex spacing='4'>
-                                            <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                                                <Avatar name='Gayle Hoefer' alt='profile picture' src='https://picsum.photos/id/237/200/300' />
-                                                <Box>
-                                                    <Heading size='sm'>Gayle Hoefer</Heading>
-                                                    <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'}/>
-                                                    <Text>Creator, Full Stack Web Developer</Text>
-                                                </Box>
+                                    <Card maxW='md' boxShadow='dark-lg' bgColor='tomato'>
+                                        <CardHeader>
+                                            <Flex spacing='4'>
+                                                <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
+                                                    <Avatar name='Gayle Hoefer' alt='profile picture' src='https://picsum.photos/id/237/200/300' />
+                                                    <Box>
+                                                        <Heading size='sm'>Gayle Hoefer</Heading>
+                                                        <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'} />
+                                                        <Text>Creator, Full Stack Web Developer</Text>
+                                                    </Box>
+                                                </Flex>
                                             </Flex>
-                                        </Flex>
-                                    </CardHeader>
-                                    <CardFooter
-                                        justify='space-between'
-                                        flexWrap='wrap'
-                                        sx={{
-                                            '& > button': {
-                                                minW: '136px',
-                                            },
-                                        }}
-                                    >
-                                        <Link href='https://github.com/hoeferg' isExternal>
-                                            <Button flex='1' variant='ghost' >
-                                                Go to Gayle's GitHub
-                                            </Button>
-                                        </Link>
-                                    </CardFooter>
-                                </Card>
-                                <Card maxW='md' boxShadow='dark-lg' bgColor='tomato'>
-                                    <CardHeader>
-                                        <Flex spacing='4'>
-                                            <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                                                <Avatar name='Derrick Lafforthun' alt='profile picture' src='https://picsum.photos/id/433/200/300' />
-                                                <Box>
-                                                    <Heading size='sm'>Derrick Lafforthun</Heading>
-                                                    <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'}/>
-                                                    <Text>Creator, Full Stack Web Developer</Text>
-                                                </Box>
+                                        </CardHeader>
+                                        <CardFooter
+                                            justify='space-between'
+                                            flexWrap='wrap'
+                                            sx={{
+                                                '& > button': {
+                                                    minW: '136px',
+                                                },
+                                            }}
+                                        >
+                                            <Link href='https://github.com/hoeferg' isExternal>
+                                                <Button flex='1' variant='ghost' >
+                                                    Go to Gayle's GitHub
+                                                </Button>
+                                            </Link>
+                                        </CardFooter>
+                                    </Card>
+                                    <Card maxW='md' boxShadow='dark-lg' bgColor='tomato'>
+                                        <CardHeader>
+                                            <Flex spacing='4'>
+                                                <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
+                                                    <Avatar name='Derrick Lafforthun' alt='profile picture' src='https://picsum.photos/id/433/200/300' />
+                                                    <Box>
+                                                        <Heading size='sm'>Derrick Lafforthun</Heading>
+                                                        <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'} />
+                                                        <Text>Creator, Full Stack Web Developer</Text>
+                                                    </Box>
+                                                </Flex>
                                             </Flex>
-                                        </Flex>
-                                    </CardHeader>
-                                    <CardFooter
-                                        justify='space-between'
-                                        flexWrap='wrap'
-                                        sx={{
-                                            '& > button': {
-                                                minW: '136px',
-                                            },
-                                        }}
-                                    >
-                                        <Link href='https://github.com/derricklaff' isExternal>
-                                            <Button flex='1' variant='ghost' >
-                                                Go to Derrick's GitHub
-                                            </Button>
-                                        </Link>
-                                    </CardFooter>
-                                </Card>
-                                <Card maxW='md' boxShadow='dark-lg' bgColor='tomato'>
-                                    <CardHeader>
-                                        <Flex spacing='4'>
-                                            <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                                                <Avatar name='Tristan Saragosa' alt='profile picture' src='https://picsum.photos/id/274/200/300/' />
-                                                <Box>
-                                                    <Heading size='sm'>Tristan Saragosa</Heading>
-                                                    <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'}/>
-                                                    <Text>Creator, Full Stack Web Developer</Text>
-                                                </Box>
+                                        </CardHeader>
+                                        <CardFooter
+                                            justify='space-between'
+                                            flexWrap='wrap'
+                                            sx={{
+                                                '& > button': {
+                                                    minW: '136px',
+                                                },
+                                            }}
+                                        >
+                                            <Link href='https://github.com/derricklaff' isExternal>
+                                                <Button flex='1' variant='ghost' >
+                                                    Go to Derrick's GitHub
+                                                </Button>
+                                            </Link>
+                                        </CardFooter>
+                                    </Card>
+                                    <Card maxW='md' boxShadow='dark-lg' bgColor='tomato'>
+                                        <CardHeader>
+                                            <Flex spacing='4'>
+                                                <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
+                                                    <Avatar name='Tristan Saragosa' alt='profile picture' src='https://picsum.photos/id/274/200/300/' />
+                                                    <Box>
+                                                        <Heading size='sm'>Tristan Saragosa</Heading>
+                                                        <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'} />
+                                                        <Text>Creator, Full Stack Web Developer</Text>
+                                                    </Box>
+                                                </Flex>
                                             </Flex>
-                                        </Flex>
-                                    </CardHeader>
-                                    <CardFooter
-                                        justify='space-between'
-                                        flexWrap='wrap'
-                                        sx={{
-                                            '& > button': {
-                                                minW: '136px',
-                                            },
-                                        }}
-                                    >
-                                        <Link href='https://github.com/trufl' isExternal>
-                                            <Button flex='1' variant='ghost' >
-                                                Go to Tristan's GitHub
-                                            </Button>
-                                        </Link>
-                                    </CardFooter>
-                                </Card>
+                                        </CardHeader>
+                                        <CardFooter
+                                            justify='space-between'
+                                            flexWrap='wrap'
+                                            sx={{
+                                                '& > button': {
+                                                    minW: '136px',
+                                                },
+                                            }}
+                                        >
+                                            <Link href='https://github.com/trufl' isExternal>
+                                                <Button flex='1' variant='ghost' >
+                                                    Go to Tristan's GitHub
+                                                </Button>
+                                            </Link>
+                                        </CardFooter>
+                                    </Card>
                                 </HStack>
-                        <Button
-                            onClick={handleDonateSubmit}
-                            bgColor={colorMode === 'dark' ? 'white' : 'black'}
-                            textColor={colorMode === 'dark' ? 'black' : 'white'}
-                        >
-                            Buy the developers a coffee
-                        </Button>
+                                <Button
+                                    onClick={handleDonateSubmit}
+                                    bgColor={colorMode === 'dark' ? 'white' : 'black'}
+                                    textColor={colorMode === 'dark' ? 'black' : 'white'}
+                                >
+                                    Buy the developers a coffee
+                                </Button>
                             </VStack>
                         </CardFooter>
                     </Center>

@@ -31,19 +31,17 @@ function Greeting() {
                             <Text align='center' fontSize='4xl'>Solve all the tasks, restore power to your ship, and get home!</Text>
                             <Text align='center' fontSize='4xl'><Link fontSize='4xl' colorScheme='red'>Log In </Link>or <Link colorScheme='red' fontSize='4xl'>Sign Up</Link> to save your mission progress! Or just play as a guest!</Text>
                         </CardBody>
-                        <CardFooter align='center'  justify='center'>
-                           
-                                
-                                    <Link as={ReactLink} to='/play-game'>
-                                        <Button
-                                            bgColor={colorMode === 'dark' ? 'white' : 'black'}
-                                            textColor={colorMode === 'dark' ? 'black' : 'white'}
-                                        >
-                                            Start Hacking
-                                        </Button>
-                                    </Link>
-                                
-                            
+                        <CardFooter align='center' justify='center'>
+                            <Link as={ReactLink} to='/play-game'>
+                                <Button
+                                    bgColor={colorMode === 'dark' ? 'white' : 'black'}
+                                    textColor={colorMode === 'dark' ? 'black' : 'white'}
+                                >
+                                    Start Hacking
+                                </Button>
+                            </Link>
+
+
                         </CardFooter>
                     </Card>
                 </Center>
