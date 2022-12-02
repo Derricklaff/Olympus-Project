@@ -51,9 +51,9 @@ function AboutUsCard() {
     }
     return (
         <>
-            <Box>
 
-                <Card >
+            <Flex align='center' justify='center'>
+                <Card boxShadow='dark-lg' mt={105} w={1350}>
                     <CardHeader>
                         <Heading as='h2' size='lg' align='center'>
                             About Us
@@ -205,8 +205,9 @@ function AboutUsCard() {
                         </CardFooter>
                     </Center>
                 </Card>
+            </Flex>
 
-            </Box>
+
 
         </>
     );
