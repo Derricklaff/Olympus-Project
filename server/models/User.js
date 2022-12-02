@@ -18,7 +18,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  checkPoint: {
+  checkpoint: {
     type: Number,
     required: false,
   }

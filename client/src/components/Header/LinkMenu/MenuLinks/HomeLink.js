@@ -4,7 +4,7 @@ import { Link as ReactLink } from "react-router-dom";
 function HomeLink() {
     return(
         <>
-        <Link as={ReactLink} to='/'>
+        <Link fontFamily='Roboto Mono' as={ReactLink} to='/'>
             <MenuItem color='tomato'>
                 Home
             </MenuItem>

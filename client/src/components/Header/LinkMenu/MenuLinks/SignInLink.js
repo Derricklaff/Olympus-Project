@@ -4,7 +4,7 @@ import { Link as ReactLink } from "react-router-dom";
 function SignInLink() {
     return(
         <>
-        <Link as={ReactLink} to='/sign-in'>
+        <Link fontFamily='Roboto Mono' as={ReactLink} to='/sign-in'>
             <MenuItem color='tomato'>
                 Sign In
             </MenuItem>

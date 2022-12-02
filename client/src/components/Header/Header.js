@@ -13,10 +13,10 @@ function Header() {
                 <div>
                     <Link to="/">
                         <HStack align='center'>
-                            <Heading color='tomato' as='h1' size='2xl'>
+                            <Heading fontFamily='Roboto Mono' color='tomato' as='h1' size='2xl'>
                                 Olympus
                             </Heading>
-                            <Heading as='h1' size='2xl'>
+                            <Heading fontFamily='Roboto Mono' as='h1' size='2xl'>
                                 Project
                             </Heading>
                         </HStack>
