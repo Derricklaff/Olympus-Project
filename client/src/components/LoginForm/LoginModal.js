@@ -21,7 +21,7 @@ import {
         motionPreset='slideInBottom'
         >
         <ModalOverlay/>
-        <ModalContent>
+        <ModalContent bg='Black'>
           <ModalHeader textColor='tomato'>
             Please Retry
           </ModalHeader>

@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react';
 import GameModal from './GameModal/GameModal';
 import GameBg from './GameBg/GameBg';
-import { QuestionOutlineIcon } from '@chakra-ui/icons';
+
 
 
 function GameContainer() {
