@@ -37,13 +37,13 @@ function Greeting() {
                         </CardHeader>
                         <CardBody>
                             <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'>
-                            Congratulations on landing your dream job as a developer here on the Olympus Space Station! Now that you signed your contract, it seems
-                            appropriate to let you know that we have just laid off 80% of our work force and have application breaking errors showing up
-                            in our code.
+                            Congratulations on landing your dream job as a software engineer here on the Olympus Space Station! Now that you signed your contract, it seems
+                            appropriate to let you know that we have just laid off 80% of our sowftware engineers and have an obscene amount of errors showing up
+                            in our code that may or may not cause an explosion on the Olympus.
                             </Text>
                             <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'>
                             Help the AI review the code in our system and fix what is needed. You will be asked a series of questions and it is up
-                            to you to pick the right solution. Solve all the problems and the Space Station probably won't explode.
+                            to you to pick the right solution. Solve all the problems and the Olympus probably won't explode.
                             </Text>
                             <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'>
                                 Good Luck!

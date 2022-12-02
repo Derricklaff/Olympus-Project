@@ -14,43 +14,43 @@ function GameContainer() {
     const questions = [
         {
             id: 1,
-            topic: "Your first task to get back home is to replace the hackerCode with the computer's processor.",
+            topic: "System error: Pick the right function definition",
             choices:
                 [
-                    "computerParts.splice(1, 2, `processor`);",
-                    "computerParts.splice(2, 1, `processor`);",
-                    "computerParts.pop(2, 1, `processor`);",
-                    "computerParts.slice(2, 1, processor);"
+                    "function KeepPowerOn() { const data = await fetch(...) ... };",
+                    "function KeepPowerOn(async) { const data = await fetch(...) ... };",
+                    "const KeepPowerOn = async () => { const data = await fetch(...) ... };",
+                    "const KeepPowerOn = () async { const data = await fetch(...) ... };",
                 ],
-            answer: "computerParts.splice(2, 1, `processor`);"
+            answer: "const KeepPowerOn = async () => { const data = await fetch(...) ... };"
         },
         {
             id: 2,
-            topic: "The hacker lowered the power levels of the ship. It looks like everything is only at half power. How would you double them? Const powerLevels = [ 11, 16, 14, 9];",
+            topic: "System error: Return a NEW array of objects",
             choices:
                 [
-                    "const powerLevels = powerLevels.map(x => x*2)",
-                    "const powerLevels = powerLevels.map(x => x/2)",
-                    "const powerLevels = powerLevels*2)",
-                    "const powerLevels = x*2"
+                    "const employeeOxygenSupply = oTanks.filter((tank) => { id, ...tank});",
+                    "const employeeOxygenSupply = oTanks.map((tank) => { id, ...tank});",
+                    "const employeeOxygenSupply = oTanks.splice(1, { tank });",
+                    "const employeeOxygenSupply = oTanks.contains({ tank });"
                 ],
-            answer: "const powerLevels = powerLevels.map(x => x*2)"
+            answer: "const employeeOxygenSupply = oTanks.map((tank) => { id, ...tank});"
         },
         {
             id: 3,
-            topic: "Now that the power levels are doubled, check your math to make sure the total is 100 using the spread method. We started the code for you: Function sum(22, 32, 28, 18) {Return 22 + 32 + 28 + 18;}Const number = [22, 32, 28, 18];",
+            topic: "System error: Fix element",
             choices:
                 [
-                    "console.log(sum(...numbers));console.log(apply(null, numbers));",
-                    "console.log(sum);console.log(sum.apply(null, numbers));",
-                    "console.log(...numbers));console.log(sum.apply(null, numbers));",
-                    "console.log(sum(...numbers)); console.log(sum.apply(null, numbers));"
+                    "function LifeSupportView() { return ( <OxygenSupply /> <EnergyLevels /> ) };",
+                    "function LifeSupportView() { return ( <OxygenSupply { <EnergyLevels /> } /> )};",
+                    "function LifeSupportView() { return ( <OxygenSupply <EnergyLevels /> /> )};",
+                    "function LifeSupportView() { return ( <> <OxygenSupply /> <EnergyLevels /> </>)};"
                 ],
-            answer: "console.log(sum(...numbers)); console.log(sum.apply(null, numbers));"
+            answer: "function LifeSupportView() { return ( <> <OxygenSupply /> <EnergyLevels /> </>)};"
         },
         {
             id: 4,
-            topic: "Oh no. The hackers have taken complete control of communications. Try to filter everything out so that the hacker parts are isolated. Const communications:  [`radio`, `hackerTransmitter`, `wires`, `hackerCopyMessage`, `alienComputerChip`]",
+            topic: "System error: ",
             choices:
                 [
                     "const filtered= arr.filter(element => 1 || element 3);console.log(filtered);",
@@ -62,7 +62,7 @@ function GameContainer() {
         },
         {
             id: 5,
-            topic: "The last step to fix the rocket ship is to reverse and combine the super secret password. Const password = [`f`, `f` ,`o`, `t`, `s`,`a` `l`, `b`]",
+            topic: "System error: Return a NEW array of objects",
             choices:
                 [
                     "arr.reverse.join();console.log(arr.join(``))",

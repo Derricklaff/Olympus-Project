@@ -72,7 +72,7 @@ function AboutUsCard() {
                                         <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'} />
                                         <CardBody>
                                             <Text fontFamily='Roboto Mono' align='center' fontSize='md'>
-                                                Hello, and welcome to the Olympus-project. A fun and interactive quiz that reviews
+                                                Hello, and welcome to the Olympus-Project. A fun and interactive quiz that reviews
                                                 coding concepts covered in a coding bootcamp. The best way to learn about a new concept
                                                 in anything is to turn it into a game. With the Olympus project, a player can review important
                                                 concepts in coding to ensure that they are learning and retaining the content taught. If you
