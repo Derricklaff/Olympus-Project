@@ -10,6 +10,13 @@ const config = {
 }
 
 // 3. extend the theme
-const theme = extendTheme({ config })
+const theme = extendTheme({ config, styles: {
+    global: (props) => ({
+      'html, body': {
+        fontFamily: 'Roboto Mono, monospace',
+      }
+    }),
+  }  
+})
 
 export default theme

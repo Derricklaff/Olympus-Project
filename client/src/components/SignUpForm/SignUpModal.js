@@ -21,18 +21,18 @@ import {
         motionPreset='slideInBottom'
         >
         <ModalOverlay />
-        <ModalContent bg='black'>
+        <ModalContent bgColor='black'>
           <ModalHeader textColor='tomato'>
             Please Retry
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton color='white' bgColor='tomato' />
           <ModalBody>
             <Text textColor='tomato'>
                 {modTxt}
             </Text>
           </ModalBody>
           <ModalFooter>
-            <Button bgColor='tomato' mr={3} onClick={onClose} textColor='white'>
+            <Button textColor='white' bgColor='tomato' mr={3} onClick={onClose}>
               Close
             </Button>
           </ModalFooter>

@@ -1,7 +1,7 @@
 import { Heading, HStack, IconButton, Button, useColorMode} from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import LinkMenu from './LinkMenu/LinkMenu';
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 function Header() {
 
@@ -9,7 +9,7 @@ function Header() {
 
     return (
         <header>
-            <HStack bgColor={colorMode === 'dark' ? 'black' : 'none'} width='100%' wrap='wrap' boxShadow='base' p={7} justify='space-between'>
+            <HStack bgColor={colorMode === 'dark' ? 'black' : 'white'} width='100%' wrap='wrap' boxShadow='base' p={7} justify='space-between'>
                 <div>
                     <Link to="/">
                         <HStack align='center'>
@@ -24,7 +24,7 @@ function Header() {
                 </div>
                 <div>
                     <HStack justify='center' align='center'>
-                        <Button bgColor='tomato' as={IconButton} onClick={toggleColorMode} icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon /> }/>
+                        <Button size='lg' bgColor='tomato' as={IconButton} onClick={toggleColorMode} icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon /> }/>
                         <LinkMenu />
                     </HStack>
                 </div>
