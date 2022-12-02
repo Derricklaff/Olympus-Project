@@ -1,11 +1,31 @@
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Link, Flex, Avatar, Box, Center, Stack, useColorModeValue } from '@chakra-ui/react'
-import { useEffect } from 'react';
+import {
+    Card,
+    CardHeader,
+    CardBody,
+    CardFooter,
+    Heading,
+    Text,
+    Button,
+    Link,
+    Flex,
+    Avatar,
+    Box,
+    Center,
+    Stack,
+    useColorMode,
+    useColorModeValue,
+    HStack,
+    VStack
+} from '@chakra-ui/react'
+import { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../../../utils/queries';
 
 
+
 const stripePromise = loadStripe("pk_test_51M9b6wJfacGwExOb03mskYA5m8ElF0FDU4U5c6wu88RNJUklfvxKofupCKOd5UVBOw2w6XwbuXtRaoFiV3MUFST800jLUmyltK")
+
 
 function AboutUsCard() {
     const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT)
@@ -29,8 +49,8 @@ function AboutUsCard() {
     }
     return (
         <>
-            <Box>
-                <Card>
+            <Box >
+                <Card >
                     <CardHeader>
                         <Heading as='h2' size='lg' align='center'>
                             About Us
@@ -41,7 +61,7 @@ function AboutUsCard() {
                             <Stack direction={['column', 'row']} spacing='24px'>
                                 <Flex justify='space-evenly'>
                                     <Center>
-                                        <Card >
+                                        <Card boxShadow='dark-lg' bgColor='tomato'>
                                             <CardHeader>
                                                 <Heading as='h3' size='md' align='center'>
                                                     About The Game
@@ -59,7 +79,7 @@ function AboutUsCard() {
                                         </Card>
                                     </Center>
                                 </Flex>
-                                <Card>
+                                <Card boxShadow='dark-lg' bgColor='tomato'>
                                     <CardHeader>
                                         <Heading as='h3' size='md' align='center'>
                                             About The Developers
@@ -77,9 +97,12 @@ function AboutUsCard() {
                         </Center>
                     </CardBody>
                     <Center>
+
                         <CardFooter>
-                            <Stack direction={['column', 'row']} spacing='24px'>
-                                <Card maxW='md'>
+    
+                            <VStack>
+                                <HStack wrap='wrap'>
+                                <Card maxW='md' boxShadow='dark-lg' bgColor='tomato'>
                                     <CardHeader>
                                         <Flex spacing='4'>
                                             <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
@@ -107,7 +130,7 @@ function AboutUsCard() {
                                         </Link>
                                     </CardFooter>
                                 </Card>
-                                <Card maxW='md'>
+                                <Card maxW='md' boxShadow='dark-lg' bgColor='tomato'>
                                     <CardHeader>
                                         <Flex spacing='4'>
                                             <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
@@ -135,7 +158,7 @@ function AboutUsCard() {
                                         </Link>
                                     </CardFooter>
                                 </Card>
-                                <Card maxW='md'>
+                                <Card maxW='md' boxShadow='dark-lg' bgColor='tomato'>
                                     <CardHeader>
                                         <Flex spacing='4'>
                                             <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
@@ -163,20 +186,19 @@ function AboutUsCard() {
                                         </Link>
                                     </CardFooter>
                                 </Card>
-                            </Stack>
-                        </CardFooter>
-                    </Center>
-                </Card>
-                <Box>
-                    <Center>
+                                </HStack>
                         <Button
                             onClick={handleDonateSubmit}
-                            colorScheme='orange'
+                            bgColor={useColorMode === 'dark' ? 'white' : 'black'}
+                            textColor={useColorMode === 'dark' ? 'black' : 'white'}
                         >
                             Buy the developers a coffee
                         </Button>
+                            </VStack>
+                        </CardFooter>
                     </Center>
-                </Box>
+                </Card>
+
             </Box>
 
         </>

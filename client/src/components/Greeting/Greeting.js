@@ -1,23 +1,21 @@
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Link, useColorModeValue, Center, Box, Stack, StackDivider } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Link, Center, Box, Stack, StackDivider, useColorMode } from '@chakra-ui/react'
 import { Link as ReactLink } from "react-router-dom";
 
 function Greeting() {
+    const { colorMode } = useColorMode();
     return (
         <>
-            <Box bg={useColorModeValue('gray')}>
+            <Box >
                 <Center>
                     <Card
                         m={[20]}
-                        py={12}
-                        role={'group'}
                         p={6}
                         maxW={'1500px'}
-                        w={'full'}
-                        bg={useColorModeValue('white', 'gray.800')}
-                        boxShadow={'2xl'}
+                        bgColor='tomato'
+                        boxShadow='dark-lg'
                         rounded={'30'}
                         pos={'relative'}
-                        zIndex={1}>
+                    >
                         <Stack divider={<StackDivider />} spacing='4'>
                             <CardHeader>
                                 <Heading as='h2' size='lg' align='center'>
@@ -38,7 +36,10 @@ function Greeting() {
                                 <Center>
                                     <Box m={[10]} pl={[625]}>
                                         <Link as={ReactLink} to='/play-game'>
-                                            <Button colorScheme='orange'>
+                                            <Button 
+                                            bgColor={colorMode === 'dark' ? 'white' : 'black'}
+                                            textColor={colorMode === 'dark' ? 'black' : 'white'}
+                                            >
                                                 Start Hacking
                                             </Button>
                                         </Link>
