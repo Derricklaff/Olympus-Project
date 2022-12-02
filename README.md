@@ -22,6 +22,10 @@ The Olympus Project is a review game to help student remember the different meth
 To use the application go to the website and click start hacking. From there click on the image and answer the questions as they pop up. Visit
 deployed applicatio here: https://olympus-prjct.herokuapp.com
 
+Deployed Olympus Project:
+
+![screenshot](assets/images/screenshot.png)
+
 ## Issue
 If there is an issue go https://github.com/trufl/Olympus-Project and create an issue.
 
