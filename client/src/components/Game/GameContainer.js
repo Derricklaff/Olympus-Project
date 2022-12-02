@@ -1,14 +1,14 @@
 import Auth from '../../utils/auth';
-import { useState } from 'react';
-import { useQuery } from '@apollo/client';
+import { useState, useEffect } from 'react';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
+import { SAVE_CHECKPOINT } from '../../utils/mutations';
 import {
     useDisclosure,
     useToast,
 } from '@chakra-ui/react';
 import GameModal from './GameModal/GameModal';
 import GameBg from './GameBg/GameBg';
-import { QuestionOutlineIcon } from '@chakra-ui/icons';
 
 
 function GameContainer() {
@@ -75,16 +75,29 @@ function GameContainer() {
         },
     ]
     const { loading, data } = useQuery(QUERY_USER);
+    // const [ saveCheckpoint]
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [answer, setAnswer] = useState('');
     const [CurrentQuestion, setCurrentQuestion] = useState(0)
     const [GameEnd, setGameEnd] = useState(false)
+
+    useEffect(() =>{
+        if(Auth.loggedIn) {
+            if(data?.user) {
+                setCurrentQuestion(data.user.checkpoint);
+            }
+        }
+    }, []);
+
     const handleFormSubmit = () => {
         console.log(answer)
         if (answer === questions[CurrentQuestion].answer) {
             if (CurrentQuestion < questions.length - 1) {
                 setCurrentQuestion(CurrentQuestion + 1)
             } else {
+                if(Auth.loggedIn) {
+
+                }
                 onClose()
                 setGameEnd(true)
             }
