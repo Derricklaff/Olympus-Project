@@ -1,5 +1,4 @@
 import { Image, Card, CardBody, Flex, Button } from '@chakra-ui/react';
-import { SettingsIcon } from '@chakra-ui/icons'
 import background from '../../images/background.png';
 import ComputerGreen from '../../images/ComputerGreen.gif'
 import ComputerRed from '../../images/ComputerRed.gif'
@@ -14,12 +13,12 @@ function GameArea({ onOpen, GameEnd }) {
                             rounded='3xl'
                             boxShadow='dark-lg'
                             src={background}
-                            alt='Dan Abramov'
+                            alt='Space Station'
                         />
                     </Flex>
                 </CardBody>
                 <Flex justify='center'>
-                    <button onClick={() => onOpen()} src={ComputerRed}> <Image src={!GameEnd ? ComputerRed : ComputerGreen} /></button>
+                    <Button _hover='none' bg='none' onClick={onOpen}> <Image src={!GameEnd ? ComputerRed : ComputerGreen} /></Button>
                 </Flex>
             </Card>
         </>

@@ -14,7 +14,7 @@ function GameBg({ onOpen, loading, GameEnd }) {
                 zIndex={-1}
             >
                 <Stack justify='center'>
-                    {loading ? <Heading as='h2'>Loading</Heading> : <GameArea onOpen={onOpen} GameEnd={GameEnd} />}
+                    {loading ? <Heading fontFamily='Roboto' color='white' as='h2'>Loading</Heading> : <GameArea onOpen={onOpen} GameEnd={GameEnd} />}
                 </Stack>
             </Box>
         </>

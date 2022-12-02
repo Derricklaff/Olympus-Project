@@ -11,29 +11,10 @@ import {
   Stack,
   Radio,
   RadioGroup,
-  Code
+  Text,
 } from '@chakra-ui/react';
 
-import { useState } from 'react';
-
 function GameModal({ setAnswer, isOpen, onClose, questions, handleFormSubmit, answer, CurrentQuestion }) {
-
-
-
-  //   {
-  //     id: 1,
-  //     topic: "Your first task to get back home is to replace the hackerCode with the computer's processor.",
-  //     choices:
-  //         [
-  //             "computerParts.splice(1, 2, `processor`);",
-  //             "computerParts.splice(2, 1, `processor`);",
-  //             "computerParts.pop(2, 1, `processor`);",
-  //             "computerParts.slice(2, 1, processor);"
-  //         ],
-  //     answer: "computerParts.splice(2, 1, `processor`);"
-  // },
-
-
 
   return (
     <>
@@ -47,22 +28,22 @@ function GameModal({ setAnswer, isOpen, onClose, questions, handleFormSubmit, an
       >
         <ModalOverlay />
         <ModalContent bg='Black'>
-          <ModalHeader textAlign='center' textColor='#68D391'>{questions[CurrentQuestion].topic}</ModalHeader>
+          <ModalHeader textAlign='center' fontFamily='Roboto Mono' textColor='#38A169'>{questions[CurrentQuestion].topic}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Center>
               <RadioGroup onChange={setAnswer} value={answer}>
                 <Stack spacing={4}>
-                  {questions[CurrentQuestion].choices.map((choice, i) => <Radio colorScheme='green' size='md' value={choice} key={i}><Code textColor='#68D391'>{choice}</Code></Radio>)}
+                  {questions[CurrentQuestion].choices.map((choice, i) => <Radio colorScheme='#38A169' size='md' value={choice} key={i}><Text fontFamily='Roboto Mono' color='#38A169'>{choice}</Text></Radio>)}
                 </Stack>
               </RadioGroup>
             </Center>
           </ModalBody>
-          <ModalFooter>
-            <Button onClick={handleFormSubmit}>
-              Submit answer!
+          <ModalFooter justifyContent='center' gap={4}>
+            <Button variant='link' bgColor='black' fontFamily='Roboto Mono' textColor='#38A169' onClick={handleFormSubmit}>
+              Run Code
             </Button>
-            <Button mr={3} onClick={onClose}>
+            <Button variant='link' bgColor='black' fontFamily='Roboto Mono' textColor='#38A169' onClick={onClose}>
               Close
             </Button>
           </ModalFooter>
