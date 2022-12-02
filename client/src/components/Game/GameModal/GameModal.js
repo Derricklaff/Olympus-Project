@@ -11,6 +11,7 @@ import {
   Stack,
   Radio,
   RadioGroup,
+  Code
 } from '@chakra-ui/react';
 
 import { useState } from 'react';
@@ -45,14 +46,14 @@ function GameModal({ setAnswer, isOpen, onClose, questions, handleFormSubmit, an
         maxH="400px" maxW="500px"
       >
         <ModalOverlay />
-        <ModalContent >
-          <ModalHeader textAlign='center'>{questions[CurrentQuestion].topic}</ModalHeader>
+        <ModalContent bg='Black'>
+          <ModalHeader textAlign='center' textColor='#68D391'>{questions[CurrentQuestion].topic}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Center>
               <RadioGroup onChange={setAnswer} value={answer}>
                 <Stack spacing={4}>
-                  {questions[CurrentQuestion].choices.map((choice, i) => <Radio size='md' value={choice} key={i}>{choice}</Radio>)}
+                  {questions[CurrentQuestion].choices.map((choice, i) => <Radio colorScheme='green' size='md' value={choice} key={i}><Code textColor='#68D391'>{choice}</Code></Radio>)}
                 </Stack>
               </RadioGroup>
             </Center>
@@ -61,7 +62,7 @@ function GameModal({ setAnswer, isOpen, onClose, questions, handleFormSubmit, an
             <Button onClick={handleFormSubmit}>
               Submit answer!
             </Button>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
+            <Button mr={3} onClick={onClose}>
               Close
             </Button>
           </ModalFooter>
