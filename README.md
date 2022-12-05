@@ -1,5 +1,5 @@
 
-# The Olympus Project
+# The Olympus Project [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![screenshot](assets/images/screenshot.png)
 
