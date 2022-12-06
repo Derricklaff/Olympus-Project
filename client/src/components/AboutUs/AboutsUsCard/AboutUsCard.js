@@ -41,7 +41,6 @@ function AboutUsCard() {
 
     async function handleDonateSubmit(e) {
         e.preventDefault();
-        console.log('hello world')
         try {
             await getCheckout()
         } catch (error) {
