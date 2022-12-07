@@ -14,11 +14,19 @@ function GameArea({ onOpen, GameEnd }) {
                             boxShadow='dark-lg'
                             src={background}
                             alt='Space Station'
+                            w='115em'
+                            
+                            
                         />
                     </Flex>
                 </CardBody>
                 <Flex justify='center'>
-                    <Button _hover='none' bg='none' onClick={onOpen}> <Image src={!GameEnd ? ComputerRed : ComputerGreen} /></Button>
+                    <Button _hover='none' bg='none' onClick={onOpen}> <Image  
+                        w='100px'
+                        position= 'relative'
+                        top= '-525px'
+                        left= '280px'
+                    src={!GameEnd ? ComputerRed : ComputerGreen} /></Button>
                 </Flex>
             </Card>
         </>
