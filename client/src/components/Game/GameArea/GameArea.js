@@ -1,4 +1,4 @@
-import { Image, Card, CardBody, Flex, Button, Container } from '@chakra-ui/react';
+import { Image, Flex, Button, Container } from '@chakra-ui/react';
 import ComputerGreen from '../../images/ComputerGreen.gif'
 import ComputerRed from '../../images/ComputerRed.gif'
 

@@ -1,4 +1,4 @@
-import { Box, Stack, Heading, Container } from '@chakra-ui/react';
+import { Stack, Heading, Container } from '@chakra-ui/react';
 import background2 from '../../images/Background2.jpg';
 import GameArea from '../GameArea/GameArea';;
 

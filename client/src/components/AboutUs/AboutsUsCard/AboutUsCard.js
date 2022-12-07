@@ -128,7 +128,7 @@ function AboutUsCard() {
                                             </Link>
                                             <Link href='https://www.linkedin.com/in/gayle-hoefer-61a2a3124/' isExternal>
                                                 <Button fontFamily='Roboto Mono' bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} flex='1'  >
-                                                    Go to Gayle's linkedin
+                                                    Go to Gayle's LinkedIn
                                                 </Button>
                                             </Link>
                                         </CardFooter>
@@ -162,7 +162,7 @@ function AboutUsCard() {
                                             </Link>
                                             <Link href='https://www.linkedin.com/in/derrick-lafforthun-b2321153/' isExternal>
                                                 <Button fontFamily='Roboto Mono' bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} flex='1'  >
-                                                    Go to Derrick's linkedin
+                                                    Go to Derrick's LinkedIn
                                                 </Button>
                                             </Link>
                                         </CardFooter>
@@ -196,7 +196,7 @@ function AboutUsCard() {
                                             </Link>
                                             <Link href='https://www.linkedin.com/in/tristan-saragosa-b02908257/' isExternal>
                                                 <Button fontFamily='Roboto Mono' bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} flex='1'  >
-                                                    Go to Tristan's linkedin
+                                                    Go to Tristan's LinkedIn
                                                 </Button>
                                             </Link>
                                         </CardFooter>
