@@ -30,7 +30,7 @@ export default function DonationThanks() {
     useEffect(() => {
         setTimeout(() => {
             window.location.assign(`/`)
-        }, 10000)
+        }, 6000)
     }, [])
 
 
