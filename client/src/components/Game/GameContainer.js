@@ -161,9 +161,9 @@ function GameContainer() {
             title: "Here's your hint!",
             description: questions[CurrentQuestion].hint,
             status: 'info',
-            duration: 30000,
+            duration: 15000,
             isClosable: true,
-        }, 30000);
+        },);
 
     }
 

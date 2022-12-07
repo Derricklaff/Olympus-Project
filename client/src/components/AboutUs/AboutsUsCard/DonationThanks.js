@@ -7,20 +7,11 @@ import {
     Card,
     CardHeader,
     CardBody,
-    CardFooter,
     Heading,
     Text,
-    Button,
-    Link,
-    Flex,
-    Avatar,
-    Box,
     Center,
-    Stack,
     useColorMode,
     Divider,
-    HStack,
-    VStack
 
 } from '@chakra-ui/react'
 
@@ -30,7 +21,7 @@ export default function DonationThanks() {
     useEffect(() => {
         setTimeout(() => {
             window.location.assign(`/`)
-        }, 6000)
+        }, 5000)
     }, [])
 
 
@@ -60,9 +51,9 @@ export default function DonationThanks() {
                                 Thank you!
                             </Text>
                             <Center mt="25px">
-                            <img 
-                            width="100px"
-                            src={greencheck} alt='green check'/>
+                                <img
+                                    width="100px"
+                                    src={greencheck} alt='green check' />
                             </Center>
                         </CardBody>
                     </Card>

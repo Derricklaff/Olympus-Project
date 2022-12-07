@@ -22,10 +22,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../../../utils/queries';
 
-
-
 const stripePromise = loadStripe("pk_test_51M9b6wJfacGwExOb03mskYA5m8ElF0FDU4U5c6wu88RNJUklfvxKofupCKOd5UVBOw2w6XwbuXtRaoFiV3MUFST800jLUmyltK")
-
 
 
 function AboutUsCard() {
@@ -38,7 +35,6 @@ function AboutUsCard() {
             });
         }
     }, [data])
-
     async function handleDonateSubmit(e) {
         e.preventDefault();
         try {
@@ -50,7 +46,6 @@ function AboutUsCard() {
     }
     return (
         <>
-
             <Flex align='center' justify='center'>
                 <Card boxShadow='dark-lg' mt={50} maxW={1500}>
                     <CardHeader>
@@ -99,12 +94,9 @@ function AboutUsCard() {
                                 </div>
                             </Stack>
                         </Center>
-
                     </CardBody>
                     <Center>
-
                         <CardFooter>
-
                             <VStack>
                                 <HStack direction={['column', 'row']} gap={1} wrap='wrap'>
                                     <Card maxW='md' boxShadow='dark-lg' bgColor='tomato'>
@@ -129,9 +121,14 @@ function AboutUsCard() {
                                                 },
                                             }}
                                         >
-                                            <Link href='https://github.com/hoeferg' isExternal>
+                                            <Link href='https://github.com/hoeferg' isExternal mb='5px'>
                                                 <Button fontFamily='Roboto Mono' bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} flex='1'  >
                                                     Go to Gayle's GitHub
+                                                </Button>
+                                            </Link>
+                                            <Link href='https://www.linkedin.com/in/gayle-hoefer-61a2a3124/' isExternal>
+                                                <Button fontFamily='Roboto Mono' bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} flex='1'  >
+                                                    Go to Gayle's linkedin
                                                 </Button>
                                             </Link>
                                         </CardFooter>
@@ -158,9 +155,14 @@ function AboutUsCard() {
                                                 },
                                             }}
                                         >
-                                            <Link href='https://github.com/derricklaff' isExternal>
+                                            <Link href='https://github.com/derricklaff' isExternal mb='5px'>
                                                 <Button fontFamily='Roboto Mono' bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} flex='1'  >
                                                     Go to Derrick's GitHub
+                                                </Button>
+                                            </Link>
+                                            <Link href='https://www.linkedin.com/in/derrick-lafforthun-b2321153/' isExternal>
+                                                <Button fontFamily='Roboto Mono' bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} flex='1'  >
+                                                    Go to Derrick's linkedin
                                                 </Button>
                                             </Link>
                                         </CardFooter>
@@ -187,9 +189,14 @@ function AboutUsCard() {
                                                 },
                                             }}
                                         >
-                                            <Link href='https://github.com/trufl' isExternal>
+                                            <Link href='https://github.com/trufl' isExternal mb='5px'>
                                                 <Button fontFamily='Roboto Mono' bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} flex='1'  >
                                                     Go to Tristan's GitHub
+                                                </Button>
+                                            </Link>
+                                            <Link href='https://www.linkedin.com/in/tristan-saragosa-b02908257/' isExternal>
+                                                <Button fontFamily='Roboto Mono' bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} flex='1'  >
+                                                    Go to Tristan's linkedin
                                                 </Button>
                                             </Link>
                                         </CardFooter>
@@ -207,9 +214,6 @@ function AboutUsCard() {
                     </Center>
                 </Card>
             </Flex>
-
-
-
         </>
     );
 }
