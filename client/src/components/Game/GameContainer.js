@@ -10,6 +10,7 @@ import {
 import GameModal from './GameModal/GameModal';
 import GameBg from './GameBg/GameBg';
 
+
 function GameContainer() {
     const questions = [
         {
@@ -22,7 +23,8 @@ function GameContainer() {
                     "const KeepPowerOn = async () => { const data = await fetch(...) ... }",
                     "const KeepPowerOn = () async { const data = await fetch(...) ... }",
                 ],
-            answer: "const KeepPowerOn = async () => { const data = await fetch(...) ... }"
+            answer: "const KeepPowerOn = async () => { const data = await fetch(...) ... }",
+            hint: "A function is more efficient as an asynchronous function. Does a function start with a const?"
         },
         {
             id: 2,
@@ -34,7 +36,8 @@ function GameContainer() {
                     "const employeeOxygenSupply = oTanks.splice(1, { tank });",
                     "const employeeOxygenSupply = oTanks.contains({ tank });"
                 ],
-            answer: "const employeeOxygenSupply = oTanks.map((tank) => { id, ...tank});"
+            answer: "const employeeOxygenSupply = oTanks.map((tank) => { id, ...tank});",
+            hint: "Do we need to limit the amount of options in this array? How many results should there be?"
         },
         {
             id: 3,
@@ -46,7 +49,8 @@ function GameContainer() {
                     "function LifeSupportView() { return ( <OxygenSupply <EnergyLevels /> /> )}",
                     "function LifeSupportView() { return ( <> <OxygenSupply /> <EnergyLevels /> </>)}"
                 ],
-            answer: "function LifeSupportView() { return ( <> <OxygenSupply /> <EnergyLevels /> </>)}"
+            answer: "function LifeSupportView() { return ( <> <OxygenSupply /> <EnergyLevels /> </>)}",
+            hint: "This element would be for a react application"
         },
         {
             id: 4,
@@ -58,7 +62,9 @@ function GameContainer() {
                     "mutation Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }",
                     "type Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }"
                 ],
-            answer: "type Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }"
+            answer: "type Engine { _id: ID, fuelLevel: Int!, selfDestruct: Boolean }",
+            hint: "Do you the code number or integer to represent an integer in code?"
+
         },
         {
             id: 5,
@@ -70,7 +76,8 @@ function GameContainer() {
                     "type: noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}",
                     ": noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}"
                 ],
-            answer: "Mutation: noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}"
+            answer: "Mutation: noExplode: async (parent, { lifeSupport, oxygenSupple, energy }, context) {...}",
+            hint: "Resolvers can have both queries and mutations."
         },
     ]
     const { loading, data } = useQuery(QUERY_USER);
@@ -83,22 +90,21 @@ function GameContainer() {
     const checkpoint = data?.user.checkpoint || 0
     let index = 0;
 
-    if(Auth.loggedIn && CurrentQuestion < checkpoint) {
-        for(let i = 0; i < checkpoint; i++) {
+    if (Auth.loggedIn && CurrentQuestion < checkpoint) {
+        for (let i = 0; i < checkpoint; i++) {
             index++;
         }
         setCurrentQuestion(index)
     }
 
     const handleFormSubmit = async () => {
-
         toast({
             title: 'Please wait',
             description: 'Compiling...',
             status: 'warning',
             duration: 800,
             isClosable: true,
-          });
+        });
 
         setTimeout(async () => {
             if (answer === questions[CurrentQuestion].answer) {
@@ -108,7 +114,7 @@ function GameContainer() {
                     status: 'success',
                     duration: 1000,
                     isClosable: true,
-                  });
+                });
                 if (CurrentQuestion < questions.length - 1) {
                     setCurrentQuestion(CurrentQuestion + 1)
                     if (Auth.loggedIn) {
@@ -133,7 +139,7 @@ function GameContainer() {
                         description: 'You have successfully fixed all the bugs! Olympus is no longer going to explode... I think.',
                         status: 'success',
                         isClosable: true,
-                      });
+                    });
                 }
             } else {
                 toast({
@@ -142,15 +148,29 @@ function GameContainer() {
                     status: 'error',
                     duration: 1000,
                     isClosable: true,
-                  });
+                });
             }
+
         }, 800)
+    }
+
+
+    const getHint = async () => {
+
+        toast({
+            title: "Here's your hint!",
+            description: questions[CurrentQuestion].hint,
+            status: 'info',
+            duration: 15000,
+            isClosable: true,
+        },);
+
     }
 
     return (
         <>
             <GameBg onOpen={onOpen} loading={loading} GameEnd={GameEnd} />
-            <GameModal setAnswer={setAnswer} isOpen={isOpen} onClose={onClose} questions={questions} handleFormSubmit={handleFormSubmit} answer={answer} CurrentQuestion={CurrentQuestion} />
+            <GameModal setAnswer={setAnswer} isOpen={isOpen} onClose={onClose} questions={questions} handleFormSubmit={handleFormSubmit} answer={answer} CurrentQuestion={CurrentQuestion} getHint={getHint} />
         </>
     );
 }

@@ -10,9 +10,9 @@ import {
   FormErrorMessage,
   Input,
   Button,
-  Card, 
-  CardHeader, 
-  CardBody, 
+  Card,
+  CardHeader,
+  CardBody,
   Heading,
   InputRightElement,
   InputGroup,
@@ -23,7 +23,7 @@ import {
 } from '@chakra-ui/react';
 
 const SignUpForm = () => {
-  const [ addUser ] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
   const [show, setShow] = useState(false);
   const [modTxt, setModTxt] = useState('');
   const { colorMode } = useColorMode();
@@ -50,76 +50,76 @@ const SignUpForm = () => {
 
   return (
     <>
-    <Flex align='center' justify='center' mt={50}>
-    <Card boxShadow='dark-lg' bgColor='tomato' width={500}>
-      <CardHeader>
-        <Heading fontFamily='Roboto Mono' as='h2' size='lg'>
-          Sign Up
-        </Heading>
-      </CardHeader>
-      <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'} />
-      <CardBody>
-        <Formik
-        initialValues={{
-          username: '',
-          email: '',
-          password: '',
-        }}
-        onSubmit={handleFormSubmit}
-        >
-          {(props) => (
-            <Form>
-              <Field name='username'>
-                {({ field, form }) => (
-                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
-                    <FormLabel fontFamily='Roboto Mono'>Enter Username</FormLabel>
-                    <Input {...field} placeholder='username' type='text' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' fontFamily='Roboto Mono'/>
-                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
-              <Field name='email'>
-                {({ field, form }) => (
-                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
-                    <FormLabel fontFamily='Roboto Mono'>Enter Email</FormLabel>
-                    <Input {...field} placeholder='email' type='email' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' fontFamily='Roboto Mono'/>
-                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
-              <Field name='password'>
-                {({ field, form }) => (
-                  <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
-                    <FormLabel fontFamily='Roboto Mono'>Enter Password</FormLabel>
-                    <InputGroup>
-                      <Input {...field} placeholder='password' type={show ? 'text' : 'password'} bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' fontFamily='Roboto Mono'/>
-                      <InputRightElement width='4.5rem'>
-                        <Button h='1.75rem' size='sm' onClick={handleClick} bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} fontFamily='Roboto Mono'>
-                          {show ? 'Hide' : 'Show'}
-                        </Button>
-                      </InputRightElement>
-                    </InputGroup>
-                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
-              <Button
-                mt={4}
-                bgColor={colorMode === 'dark' ? 'white' : 'black'}
-                textColor={colorMode === 'dark' ? 'black' : 'white'}
-                fontFamily='Roboto Mono'
-                isLoading={props.isSubmitting}
-                type='submit'
-              >
-                Submit
-              </Button>
-            </Form>
-          )}
-        </Formik>
-      </CardBody>
-    </Card>
-    </Flex>
-    <SignUpModal modTxt={modTxt} isOpen={isOpen} onClose={onClose} />
+      <Flex align='center' justify='center' mt={50}>
+        <Card boxShadow='dark-lg' bgColor='tomato' width={500}>
+          <CardHeader>
+            <Heading fontFamily='Roboto Mono' as='h2' size='lg'>
+              Sign Up
+            </Heading>
+          </CardHeader>
+          <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'} />
+          <CardBody>
+            <Formik
+              initialValues={{
+                username: '',
+                email: '',
+                password: '',
+              }}
+              onSubmit={handleFormSubmit}
+            >
+              {(props) => (
+                <Form>
+                  <Field name='username'>
+                    {({ field, form }) => (
+                      <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
+                        <FormLabel fontFamily='Roboto Mono'>Enter Username</FormLabel>
+                        <Input {...field} placeholder='Username' type='text' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' fontFamily='Roboto Mono' />
+                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                  <Field name='email'>
+                    {({ field, form }) => (
+                      <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
+                        <FormLabel fontFamily='Roboto Mono'>Enter Email</FormLabel>
+                        <Input {...field} placeholder='Email' type='email' bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' fontFamily='Roboto Mono' />
+                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                  <Field name='password'>
+                    {({ field, form }) => (
+                      <FormControl isRequired isInvalid={form.errors.name && form.touched.name}>
+                        <FormLabel fontFamily='Roboto Mono'>Enter Password</FormLabel>
+                        <InputGroup>
+                          <Input {...field} placeholder='Password' type={show ? 'text' : 'password'} bgColor={colorMode === 'light' ? 'white' : 'none'} borderColor='white' fontFamily='Roboto Mono' />
+                          <InputRightElement width='4.5rem'>
+                            <Button h='1.75rem' size='sm' onClick={handleClick} bgColor={colorMode === 'dark' ? 'white' : 'black'} textColor={colorMode === 'dark' ? 'black' : 'white'} fontFamily='Roboto Mono'>
+                              {show ? 'Hide' : 'Show'}
+                            </Button>
+                          </InputRightElement>
+                        </InputGroup>
+                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                  <Button
+                    mt={4}
+                    bgColor={colorMode === 'dark' ? 'white' : 'black'}
+                    textColor={colorMode === 'dark' ? 'black' : 'white'}
+                    fontFamily='Roboto Mono'
+                    isLoading={props.isSubmitting}
+                    type='submit'
+                  >
+                    Submit
+                  </Button>
+                </Form>
+              )}
+            </Formik>
+          </CardBody>
+        </Card>
+      </Flex>
+      <SignUpModal modTxt={modTxt} isOpen={isOpen} onClose={onClose} />
     </>
   );
 }

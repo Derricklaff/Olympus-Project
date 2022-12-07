@@ -35,8 +35,8 @@ const resolvers = {
         payment_method_types: ['card'],
         line_items,
         mode: 'payment',
-        success_url: `${url}/`,
-        cancel_url: `${url}/`
+        success_url: `${url}/donation-thanks`,
+        cancel_url: `${url}`
     });
     return {session:session.id}
     }
