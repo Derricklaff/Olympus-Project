@@ -53,7 +53,7 @@ In this project we used Stripe, MongoDB, React, GraphQL, Apollo Server, Chakra U
 If you have any questions, how to contribute or additional feedback, please contact our GitHub Repository and we will get back to you as soon as possible.
 
 Contact Info: 
-GitHub: The github accounts of the creators are https://github.com/hoeferg, https://github.com/derricklaff, and https://github.com/trufl]
+GitHub: The github accounts of the creators are https://github.com/hoeferg, https://github.com/derricklaff, and https://github.com/trufl
   
 ## Credits
 The three creator's are Gayle Hoefer, Tristan Saragosa, and Derrick Lafforthun.
