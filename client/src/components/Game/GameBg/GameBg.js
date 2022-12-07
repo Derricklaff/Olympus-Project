@@ -1,6 +1,5 @@
 import { Box, Stack, Heading, Container } from '@chakra-ui/react';
 import background2 from '../../images/Background2.jpg';
-// import backdrop from '../../images/backdrop.png';
 import GameArea from '../GameArea/GameArea';;
 
 function GameBg({ onOpen, loading, GameEnd }) {
@@ -15,9 +14,9 @@ function GameBg({ onOpen, loading, GameEnd }) {
                 minW='100vw'
                 zIndex={-1}
             >
-            <Stack justify='center'>
-                {loading ? <Heading fontFamily='Roboto' color='white' as='h2'>Loading</Heading> : <GameArea onOpen={onOpen} GameEnd={GameEnd} />}
-            </Stack>
+                <Stack justify='center'>
+                    {loading ? <Heading fontFamily='Roboto' color='white' as='h2'>Loading</Heading> : <GameArea onOpen={onOpen} GameEnd={GameEnd} />}
+                </Stack>
             </Container>
 
         </>

@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Header from "../../Header/Header"
+import greencheck from '../../images/greencheck.png';
 
 import {
     Card,
@@ -26,11 +27,11 @@ import {
 export default function DonationThanks() {
     const { colorMode } = useColorMode();
 
-        useEffect(() => {
-            setTimeout(() => {
-                window.location.assign(`/`)
-            }, 10000)
-        }, [])
+    useEffect(() => {
+        setTimeout(() => {
+            window.location.assign(`/`)
+        }, 10000)
+    }, [])
 
 
     return (
@@ -58,7 +59,11 @@ export default function DonationThanks() {
                             <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'>
                                 <p>Thank you!</p>
                             </Text>
-                            {/* <img src='../../assets/' alt='green check'/> */}
+                            <Center mt="25px">
+                            <img 
+                            width="100px"
+                            src={greencheck} alt='green check'/>
+                            </Center>
                         </CardBody>
                     </Card>
                 </Center>
