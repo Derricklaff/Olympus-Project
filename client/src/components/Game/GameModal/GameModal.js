@@ -14,7 +14,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-function GameModal({ setAnswer, isOpen, onClose, questions, handleFormSubmit, answer, CurrentQuestion }) {
+function GameModal({ setAnswer, isOpen, onClose, questions, handleFormSubmit, answer, CurrentQuestion, getHint }) {
 
   return (
     <>
@@ -39,9 +39,12 @@ function GameModal({ setAnswer, isOpen, onClose, questions, handleFormSubmit, an
               </RadioGroup>
             </Center>
           </ModalBody>
-          <ModalFooter justifyContent='center' gap={4}>
+          <ModalFooter justifyContent='center' gap={12}>
             <Button variant='link' bgColor='black' fontFamily='Roboto Mono' textColor='#38A169' onClick={handleFormSubmit}>
               Run Code
+            </Button>
+            <Button variant='link' bgColor='black' fontFamily='Roboto Mono' textColor='#38A169' onClick={getHint}>
+              Get a Hint
             </Button>
             <Button variant='link' bgColor='black' fontFamily='Roboto Mono' textColor='#38A169' onClick={onClose}>
               Close
