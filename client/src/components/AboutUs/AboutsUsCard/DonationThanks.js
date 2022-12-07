@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import { useParams } from "react-router-dom"
 import Header from "../../Header/Header"
 import greencheck from '../../images/greencheck.png';
 
