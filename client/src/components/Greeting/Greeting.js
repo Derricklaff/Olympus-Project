@@ -37,16 +37,16 @@ function Greeting() {
                         </CardHeader>
                         <CardBody>
                             <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'>
-                            Congratulations on landing your dream job as a software engineer here on the Olympus Space Station! Now that you signed your contract, it seems appropriate to let you know that we have just laid off 80% of our software engineers and have an obscene amount of errors showing up in our code that may or may not cause an explosion on the Olympus.
+                                Congratulations on landing your dream job as a software engineer here on the Olympus Space Station! Now that you signed your contract, it seems appropriate to let you know that we have just laid off 80% of our software engineers and have an obscene amount of errors showing up in our code that may or may not cause an explosion on the Olympus.
                             </Text>
                             <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'>
-                            Help the AI review the code in our system and fix what is needed. You will be asked a series of questions and it is up
-                            to you to pick the right solution. Solve all the problems and the Olympus probably won't explode.
+                                Help the AI review the code in our system and fix what is needed. You will be asked a series of questions and it is up
+                                to you to pick the right solution. Solve all the problems and the Olympus probably won't explode.
                             </Text>
                             <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'>
                                 Good Luck!
                             </Text>
-                            <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'><Link fontSize='4xl' colorScheme='red'>Log In </Link>or <Link colorScheme='red' fontSize='4xl'>Sign Up</Link> to save your mission progress! Or just play as a guest!</Text>
+                            <Text fontFamily='Roboto Mono' align='center' fontSize='2xl'><Link fontSize='4xl' color='Black' href='/sign-in'>Log In </Link>or <Link href='/sign-up' color='Black' fontSize='4xl'>Sign Up</Link> to save your mission progress! Or just play as a guest!</Text>
                         </CardBody>
                         <Divider bgColor={colorMode === 'dark' ? 'black' : 'white'} />
                         <CardFooter align='center' justify='center'>

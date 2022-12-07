@@ -10,6 +10,7 @@ import {
 import GameModal from './GameModal/GameModal';
 import GameBg from './GameBg/GameBg';
 
+
 function GameContainer() {
     const questions = [
         {
@@ -97,7 +98,6 @@ function GameContainer() {
     }
 
     const handleFormSubmit = async () => {
-
         toast({
             title: 'Please wait',
             description: 'Compiling...',
@@ -150,13 +150,27 @@ function GameContainer() {
                     isClosable: true,
                 });
             }
+
         }, 800)
+    }
+
+
+    const getHint = async () => {
+
+        toast({
+            title: "Here's your hint!",
+            description: questions[CurrentQuestion].hint,
+            status: 'info',
+            duration: 30000,
+            isClosable: true,
+        }, 30000);
+
     }
 
     return (
         <>
             <GameBg onOpen={onOpen} loading={loading} GameEnd={GameEnd} />
-            <GameModal setAnswer={setAnswer} isOpen={isOpen} onClose={onClose} questions={questions} handleFormSubmit={handleFormSubmit} answer={answer} CurrentQuestion={CurrentQuestion} />
+            <GameModal setAnswer={setAnswer} isOpen={isOpen} onClose={onClose} questions={questions} handleFormSubmit={handleFormSubmit} answer={answer} CurrentQuestion={CurrentQuestion} getHint={getHint} />
         </>
     );
 }
