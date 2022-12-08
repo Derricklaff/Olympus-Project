@@ -12,7 +12,7 @@ import SignUpPage from './pages/SignupPage/SignUpPage';
 import AboutUs from './pages/AboutUs/AboutUs';
 import GamePage from './pages/GamePage/GamePage';
 import { setContext } from '@apollo/client/link/context';
-import DonationThanks from './components/AboutUs/AboutsUsCard/DonationThanks';
+import DonationThanks from './pages/Donation/DonationThanks';
 
 
 const httpLink = createHttpLink({
