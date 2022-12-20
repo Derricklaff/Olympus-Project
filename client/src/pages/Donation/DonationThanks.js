@@ -1,6 +1,6 @@
 import { useEffect } from "react"
-import Header from "../../Header/Header"
-import greencheck from '../../images/greencheck.png';
+import Header from "../../components/Header/Header"
+import greencheck from '../../components/images/greencheck.png'
 
 import {
     Card,
